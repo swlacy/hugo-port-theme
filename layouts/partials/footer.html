@@ -1,0 +1,69 @@
+<div class="skew skew-bottom ml-for-radius bg-stone-800">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50 dark:text-slate-800" viewBox="0 0 10 10" preserveAspectRatio="none">
+        <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
+    </svg>
+</div>
+<div class="py-12 bg-stone-800 radius-for-skewed">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap mb-6 lg:mb-20">
+            <div class="mb-6 w-full lg:w-1/5">
+                <a href="/">
+                    <img class="h-10" src="{{ .Site.Params.logoPath }}" alt="{{ .Site.Title }} Logo" />
+                </a>
+                <div class="flex py-4 space-x-2 lg:space-x-4 text-sm italic text-gray-400">
+                    {{ .Site.Params.indexSubTitle | markdownify }}
+                </div>
+            </div>
+            <div class="w-full lg:w-4/5 flex flex-wrap -mx-3 justify-end text-gray-400">
+                <div class="mb-6 w-full md:w-1/2 lg:w-1/4 px-3">
+                    <div class="mb-4 font-mono text-2xl flex">
+                        <i icon-name="send" height="24px" class="mt-1 mr-2"></i>
+                        Contact
+                    </div>
+                    {{ range .Site.Menus.socials }}
+                    <a class="flex text-lg hover:text-gray-50" href="{{ .URL }}" title="{{ .Name }}">
+                        <i icon-name="{{ .Pre | safeHTML }}" height="14px" class="mt-1 mr-1"></i>
+                        {{ .Name }}
+                    </a>
+                    {{ end }}
+                </div>
+                <div class="mb-6 w-full md:w-1/2 lg:w-1/4 px-3">
+                    <div class="mb-4 font-mono text-2xl flex">
+                        <i icon-name="library" height="24px" class="mt-1 mr-2"></i>
+                        Pages
+                    </div>
+                    {{ range .Data.Pages }}
+                    <a class="flex text-lg hover:text-gray-50" href="{{ .Permalink }}">
+                        <i icon-name="{{ if .IsSection }}folder-open{{ else }}file-text{{ end }}" height="14px" class="mt-1 mr-1"></i>
+                        {{ .Name }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row lg:justify-center lg:space-x-2 lg:space-y-0 space-y-1 -mx-1 text-xs text-gray-400">
+            <div class="flex">
+                <i icon-name="copyright" height="14px" class="mt-px"></i>
+                Copyright {{ now.Format "2006" }} {{ .Site.Params.authorName }}.
+            </div>
+            <div class="flex">
+                <i icon-name="scale" height="14px" class="mt-px"></i>
+                All content&nbsp;<a href="{{ .Site.Params.licenseLink }}" class="underline hover:text-gray-50">{{ .Site.Params.licenseName }}d</a>.
+            </div>
+            {{ if .Site.Params.attributionPage }}
+            <div class="flex">
+                <i icon-name="library" height="14px" class="mt-px"></i>
+                View the&nbsp;<a href="{{ .Site.Params.attributionPage }}" class="underline hover:text-gray-50">attributions page</a>.
+            </div>
+            {{ end }}
+            <div class="flex">
+                <i icon-name="palette" height="14px" class="mt-px"></i>
+                <a href="https://github.com/lacysw/hugo-port-theme" class="underline hover:text-gray-50">Port Theme</a>&nbsp;for Hugo.
+            </div>
+            <div class="flex">
+                <i icon-name="cog" height="14px" class="mt-px"></i>
+                Last Built {{ now.Format "January 2, 2006" }} {{ .Site.Params.timezone}}.
+            </div>
+        </div>
+    </div>
+</div>

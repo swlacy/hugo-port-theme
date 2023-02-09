@@ -1,0 +1,61 @@
+<div id="sidebar" class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
+    <div class="navbar-backdrop fixed inset-0 bg-stone-800 opacity-50"></div>
+    <nav class="relative flex flex-col py-4 px-4 h-full w-full bg-stone-800 border-r overflow-y-auto">
+        <div class="flex items-center mb-8">
+            <a class="mr-auto" href="/">
+                <img class="h-6" src="{{ .Site.Params.logoPath }}" alt="{{ .Site.Title }} Logo" />
+            </a>
+            <button class="navbar-close">
+                <i icon-name="x" height="24px" class="text-white"></i>
+            </button>
+        </div>
+        <div class="items-center mb-5">
+            <div class="relative">
+                <i icon-name="search" height="18px" class="absolute top-1/2 left-2 -translate-y-1/2 text-gray-400"></i>
+                <input
+                    class="w-full h-9 py-1 pl-9 pr-4 text-sm text-coolGray-500 font-medium placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 border border-coolGray-200 rounded-lg shadow-xsm font-mono"
+                    type="text"
+                    placeholder="Search this site" />
+            </div>
+        </div>
+        <div id="sidebar-links">
+            <ul>
+                {{ range .Site.Menus.header }}
+                <li class="mb-1">
+                    <a class="flex items-center gap-2 py-2 pt-3 text-sm font-semibold text-gray-400 hover:text-gray-50" href="{{ .URL }}">
+                        {{ if .Pre }}
+                        <i icon-name="{{ .Pre | safeHTML }}" height="14pt" class="mt-px"></i>
+                        {{ end }} {{ .Name | safeHTML }}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        <div class="mt-auto">
+            <p class="my-4 text-xs text-center text-gray-400">
+                <span class="flex py-1">
+                    <i icon-name="copyright" height="14px" class="mt-px"></i>
+                    Copyright {{ now.Format "2006" }} {{ .Site.Params.authorName }}.
+                </span>
+                <span class="flex py-1">
+                    <i icon-name="scale" height="14px" class="mt-px"></i>
+                    All content&nbsp;<a href="{{ .Site.Params.licenseLink }}" class="underline">{{ .Site.Params.licenseName }}d</a>.
+                </span>
+                {{ if .Site.Params.attributionPage }}
+                <span class="flex py-1">
+                    <i icon-name="library" height="14px" class="mt-px"></i>
+                    View the&nbsp;<a href="{{ .Site.Params.attributionPage }}" class="underline">attributions page</a>.
+                </span>
+                {{ end }}
+                <span class="flex py-1">
+                    <i icon-name="palette" height="14px" class="mt-px"></i>
+                    <a href="https://github.com/lacysw/hugo-port-theme" class="underline">Port Theme</a>&nbsp;for Hugo (<a href="{{ .Site.Params.licenseLink }}" class="underline">{{ .Site.Params.licenseName }}</a>).
+                </span>
+                <span class="flex py-1">
+                    <i icon-name="cog" height="14px" class="mt-px"></i>
+                    Last Built {{ now.Format "January 2, 2006" }} {{ .Site.Params.timezone}}.
+                </span>
+            </p>
+        </div>
+    </nav>
+</div>
