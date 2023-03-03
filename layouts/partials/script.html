@@ -1,6 +1,17 @@
+<!-- Sidebar open/close toggle script -->
+<script src="/js/sidebar.min.js"></script>
+
+<!-- Accordion open/closem toggle script -->
+<script src="/js/accordion.min.js"></script>
+
+<!-- Lucide icon loader -->
 <script src="/js/lucide.min.js"></script>
 <script>
     lucide.createIcons();
 </script>
-<script src="/js/sidebar.min.js"></script>
-<script src="/js/accordion.min.js"></script>
+
+<!-- Clickable image zoom script -->
+<script src="/js/zooming.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded",function(){let z=new Zooming({bgColor:"#00000080",scaleExtra:1,transitionDuration:.3});z.listen("p img")});
+</script>

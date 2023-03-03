@@ -1,37 +1,23 @@
 {{ define "main" }}
-
-<!-- <div class="mx-auto text-center">
-        <h2 class="mb-6 text-3xl leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight font-bold font-heading">{{ .Title }}</h2>
-        <div class="flex items-center justify-center">{{ if .Params.show.meta }} {{ partial "metadata" . }} {{ end }}</div>
-    </div>
-    <div class="mx-auto pt-12">{{ .Content }}</div> -->
-<div class="mx-auto py-12 px-4">
+<div class="mx-auto py-12 px-4 bg-gray-50">
     <div class="max-w-5xl mx-auto">
-        {{ if .Params.cover.path }}
-        <div class="mb-12">
-            <img class="rounded object-cover mx-auto" src="{{ .Params.cover.path }}" alt="{{ .Params.cover.alt }}" />
-            {{ if .Params.cover.caption }}
-            <p class="text-right text-sm italic opacity-50 pr-2">{{ .Params.cover.caption }}</p>
-            {{ end }}
-        </div>
-        {{ end }}
+        <h1 class="mb-1 text-3xl lg:text-4xl font-bold font-heading">{{ .Title }}</h1>
+        <p class="flex mb-1 font-mono">
+            <i icon-name="info" height="16px" class="-mx-1 mt-1"></i>&nbsp;
+            <span class="ml-1 sm:ml-0">{{ .Description }}</span>
+        </p>
         {{ if .Params.show.meta }} {{ partial "metadata" . }} {{ end }}
-        <h2 class="mb-12 text-3xl lg:text-4xl font-bold font-heading">{{ .Title }}</h2>
+        {{ if .Params.cover.path }}
+        <p class="">
+            <img class="rounded object-cover mx-auto h-96 w-full" src="{{ .Params.cover.path }}" alt="{{ .Params.cover.alt }}" />
+        </p>
+        {{ if .Params.cover.caption }}
+        <p class="text-right text-sm italic opacity-50 pr-1 -my-3 mb-2">{{ .Params.cover.caption }}</p>
+        {{ end }} {{ end }}
+        {{ if .Params.show.contents }} {{ partial "contents" . }} {{ end }}
+        <hr class="my-6" />
         <div class="mb-12">
-            <h3 class="mb-4 text-2xl font-bold font-heading">Maecenas aliquam felis dolor sit amet</h3>
-            <p class="text-gray-500 leading-loose">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo est eget consequat imperdiet. Suspendisse laoreet scelerisque lobortis. Mauris facilisis hendrerit nulla at vehicula. Suspendisse potenti. Ut in nulla
-                a purus bibendum convallis. Suspendisse id nunc maximus, suscipit ante ac, vulputate massa. Sed ut nunc suscipit, bibendum arcu a, interdum elit. Nullam laoreet mollis dictum. Ut suscipit, magna at elementum iaculis, erat
-                erat fermentum justo, sit amet ultrices enim leo sit amet purus. Nulla sed erat molestie, auctor mauris lobortis, iaculis justo.
-            </p>
-        </div>
-        <div>
-            <h3 class="mb-4 text-2xl font-bold font-heading">Maecenas aliquam felis dolor sit amet</h3>
-            <p class="text-gray-500 leading-loose">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo est eget consequat imperdiet. Suspendisse laoreet scelerisque lobortis. Mauris facilisis hendrerit nulla at vehicula. Suspendisse potenti. Ut in nulla
-                a purus bibendum convallis. Suspendisse id nunc maximus, suscipit ante ac, vulputate massa. Sed ut nunc suscipit, bibendum arcu a, interdum elit. Nullam laoreet mollis dictum. Ut suscipit, magna at elementum iaculis, erat
-                erat fermentum justo, sit amet ultrices enim leo sit amet purus. Nulla sed erat molestie, auctor mauris lobortis, iaculis justo.
-            </p>
+            {{ .Content | replaceRE "(<h[1-6]\\sid=\"([^\"]+)\"\\s?>)(.+)(</h[1-6]+>)" "${1}<a class=\"nodec flex\" href=\"#${2}\"><span class=\"hover-link\">${3}<span class=\"hash\">&nbsp;#</span></span></a>${4}" | safeHTML }}
         </div>
     </div>
 </div>

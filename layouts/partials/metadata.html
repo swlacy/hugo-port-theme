@@ -1,71 +1,37 @@
-<div class="flex flex-col lg:flex-row lg:space-x-4 lg:space-y-0 space-y-1 -mx-1 text-xs">
+<div class="flex flex-col lg:flex-row lg:space-x-4 lg:space-y-0 space-y-1 -mx-1 mb-4 rounded text-small font-mono">
     {{ if .Site.Params.authorName }}
     <div class="flex">
-        <i icon-name="user" height="14px" class="mt-px"></i>
-        Written by&nbsp;<a href="{{ .Site.Params.authorPage }}" class="underline">{{ .Site.Params.authorName }}</a>
+        <i icon-name="user" height="16px" class="mt-1 mr-1"></i>
+        <a href="{{ .Site.Params.authorPage }}" class="underline">{{ .Site.Params.authorName }}</a>
     </div>
     {{ end }}
     <div class="flex">
-        <i icon-name="calendar" height="14px" class="mt-px"></i>
-        Published on {{ .Date.Format "2006-01-02" }}
+        <i icon-name="calendar" height="16px" class="mt-1 mr-1"></i>
+        {{ .Date.Format "2006-01-02" }}
     </div>
     {{ if gt (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
     <div class="flex">
-        <i icon-name="edit-3" height="14px" class="mt-px"></i>
-        Last edited on {{ .Lastmod.Format "2006-01-02" }}
+        <i icon-name="edit-3" height="16px" class="mt-1 mr-1"></i>
+        {{ .Lastmod.Format "2006-01-02" }}
     </div>
     {{ end }}
     <div class="flex">
-        <i icon-name="clock" height="14px" class="mt-px"></i>
-        ~{{ .ReadingTime }} min reading time
+        <i icon-name="clock" height="16px" class="mt-1 mr-1"></i>
+        ~{{ .ReadingTime }} min
     </div>
+    {{ if and .GitInfo .Site.Params.repoLink }}
     <div class="flex">
-        <i icon-name="git-commit" height="14px" class="mt-px"></i>
-        Commit:
-        a5b33c...
+        <i icon-name="git-commit" height="16px" class="mt-1 mr-1"></i>
+        <a href="{{ .Site.Params.repoLink}}/commit/{{ .GitInfo.Hash }}" target="_blank" rel="noopener noreferrer" class="underline">{{ .GitInfo.AbbreviatedHash }}...</a>
     </div>
+    {{ end }} {{- with .Params.tags -}} {{- if ge (len .) 1 -}}
+    <div class="inline-flex">
+        <i icon-name="tag" height="16px" class="mt-1 mr-1"></i>
+        <span>
+            {{- range . -}}
+            <a href="/tags/{{ . | urlize }}/" class="underline">#{{ . }}</a>
+            {{ end -}}
+        </span>
+    </div>
+    {{- end -}} {{- end -}}
 </div>
-
-<!-- <div class="card mt-3">
-    <div class="card-body">
-        <div id="post-metadata">
-            {{ if .Site.Params.author }}
-            <div>
-                <i icon-name="user" class="inline-icons"></i>
-                Written by
-                <a href="{{ .Site.Params.authorPage }}" class="text-decoration-underline">{{ .Site.Params.author }}</a>
-            </div>
-            {{ end }}
-            <div>
-                <i icon-name="calendar" class="inline-icons"></i>
-                <span>Published on {{ .Date.Format "2006-01-02" }}</span>
-            </div>
-            {{ if gt (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
-            <div>
-                <i icon-name="edit-3" class="inline-icons"></i>
-                <span>Last edited on {{ .Lastmod.Format "2006-01-02" }}</span>
-            </div>
-            {{ end }}
-            <div>
-                <i icon-name="clock" class="inline-icons"></i>
-                <span>~{{ .ReadingTime }} min reading time</span>
-            </div>
-            {{ if and .GitInfo .Site.Params.repoLink }}
-            <div>
-                <i icon-name="git-commit" class="inline-icons"></i>
-                Commit:
-                <a href="{{ .Site.Params.repoLink}}/commit/{{ .GitInfo.Hash }}" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">{{ .GitInfo.AbbreviatedHash }}...</a>
-            </div>
-            {{ end }} {{- with .Params.tags -}} {{- if ge (len .) 1 -}}
-            <div class="inline-flex items-center space-x-2">
-                <i icon-name="tag" class="inline-icons"></i>
-                <span>
-                    {{- range . -}}
-                    <a href="/tags/{{ . | urlize }}/" class="text-decoration-underline">#{{ . }}</a>
-                    {{ end -}}
-                </span>
-            </div>
-            {{- end -}} {{- end -}}
-        </div>
-    </div>
-</div> -->

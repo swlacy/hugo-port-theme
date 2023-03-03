@@ -17,25 +17,38 @@
             <div class="w-full lg:w-4/5 flex flex-wrap -mx-3 justify-end text-gray-400">
                 <div class="mb-6 w-full md:w-1/2 lg:w-1/4 px-3">
                     <div class="mb-4 font-mono text-2xl flex">
+                        <i icon-name="link" height="24px" class="mt-1 mr-2"></i>
+                        Links
+                    </div>
+                    {{ range .Site.Menus.header }}
+                    <a class="flex text-lg hover:text-gray-50" href="{{ .URL }}">
+                        {{ if .Pre }}
+                        <i icon-name="{{ .Pre | safeHTML }}" height="18px" class="mt-1 mr-1"></i>
+                        {{ end }} {{ .Name | safeHTML }}
+                    </a>
+                    {{ end }}
+                </div>
+                <div class="mb-6 w-full md:w-1/2 lg:w-1/4 px-3">
+                    <div class="mb-4 font-mono text-2xl flex">
                         <i icon-name="send" height="24px" class="mt-1 mr-2"></i>
                         Contact
                     </div>
                     {{ range .Site.Menus.socials }}
                     <a class="flex text-lg hover:text-gray-50" href="{{ .URL }}" title="{{ .Name }}">
-                        <i icon-name="{{ .Pre | safeHTML }}" height="14px" class="mt-1 mr-1"></i>
+                        <i icon-name="{{ .Pre | safeHTML }}" height="18px" class="mt-1 mr-1"></i>
                         {{ .Name }}
                     </a>
                     {{ end }}
                 </div>
                 <div class="mb-6 w-full md:w-1/2 lg:w-1/4 px-3">
                     <div class="mb-4 font-mono text-2xl flex">
-                        <i icon-name="library" height="24px" class="mt-1 mr-2"></i>
-                        Pages
+                        <i icon-name="bell-plus" height="24px" class="mt-1 mr-2"></i>
+                        Recent
                     </div>
-                    {{ range .Data.Pages }}
-                    <a class="flex text-lg hover:text-gray-50" href="{{ .Permalink }}">
-                        <i icon-name="{{ if .IsSection }}folder-open{{ else }}file-text{{ end }}" height="14px" class="mt-1 mr-1"></i>
-                        {{ .Name }}
+                    {{- range ( where site.RegularPages.ByPublishDate.Reverse "Section" "in" (slice "articles" "notes") | first 5 ) }}
+                    <a class="flex text-lg hover:text-gray-50" href="{{ .Permalink }}" title="{{ .Name }}">
+                        <i icon-name="file-plus" height="18px" class="mt-1 mr-1"></i>
+                        {{ .Name | truncate 12 }}
                     </a>
                     {{ end }}
                 </div>

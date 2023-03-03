@@ -1,3 +1,299 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --theme: #8a5751;
+}
+
+/* Code block formatting */
+pre {
+    overflow: auto;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 0.3em;
+    color: #ebdbb2;
+    background-color: #292524;
+}
+
+/* Inline code formatting */
+p code {
+    padding: 0.2em;
+    border-radius: 0.3em;
+    color: #ebdbb2;
+    background-color: #292524;
+}
+
+/* Inline image formatting */
+p img {
+    margin: 1rem 0 1rem 0;
+    border-radius: .25rem;
+}
+
+/* Blockquote */
+blockquote {
+    padding: 1em;
+    margin: 1em 0;
+    border-left: 0.3em solid #e5e7eb;
+    background-color: #f3f4f6;
+}
+
+/* Heading anchor popup on hover */
+.hash {
+    display: none;
+}
+  
+.hover-link:hover .hash {
+    display: inline-block;
+}  
+
+/* Heading formatting */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--theme);
+    font-weight: bold;
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.75rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+h5 {
+    font-size: 1.25rem;
+}
+h6 {
+    font-size: 1rem;
+}
+
+/* TOC indenting */
+#TableOfContents li a:hover {
+    color: var(--theme);
+}
+#TableOfContents ul {
+    margin-left: 0;
+}
+#TableOfContents ul ul {
+    margin-left: 1rem;
+}
+#TableOfContents ul ul ul {
+    margin-left: 2rem;
+}
+#TableOfContents ul ul ul ul {
+    margin-left: 3rem;
+}
+
+/* Syntax highlighting */
+.chroma {
+    color: #ebdbb2;
+    background-color: #292524;
+}
+.chroma .lnlinks {
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+}
+.chroma .lntd {
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.chroma .lntable {
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.chroma .hl {
+    background-color: #ffc;
+}
+.chroma .ln, .chroma .lnt {
+    white-space: pre;
+    user-select: none;
+    margin-right: 1em;
+    padding: 0 1em 0 0.4em;
+    color: #756d59;
+    border-right: solid 1px #756d59;
+}
+.chroma .line {
+    display: flex;
+}
+.chroma .k {
+    color: #fe8019;
+}
+.chroma .kc {
+    color: #fe8019;
+}
+.chroma .kd {
+    color: #fe8019;
+}
+.chroma .kn {
+    color: #fe8019;
+}
+.chroma .kp {
+    color: #fe8019;
+}
+.chroma .kr {
+    color: #fe8019;
+}
+.chroma .kt {
+    color: #fabd2f;
+}
+.chroma .na {
+    color: #b8bb26;
+    font-weight: 700;
+}
+.chroma .nb {
+    color: #fabd2f;
+}
+.chroma .no {
+    color: #d3869b;
+}
+.chroma .ni {
+    color: #fabd2f;
+}
+.chroma .ne {
+    color: #fb4934;
+}
+.chroma .nf {
+    color: #fabd2f;
+}
+.chroma .nl {
+    color: #fb4934;
+}
+.chroma .nt {
+    color: #fb4934;
+}
+.chroma .s {
+    color: #b8bb26;
+}
+.chroma .sa {
+    color: #b8bb26;
+}
+.chroma .sb {
+    color: #b8bb26;
+}
+.chroma .sc {
+    color: #b8bb26;
+}
+.chroma .dl {
+    color: #b8bb26;
+}
+.chroma .sd {
+    color: #b8bb26;
+}
+.chroma .s2 {
+    color: #b8bb26;
+}
+.chroma .se {
+    color: #b8bb26;
+}
+.chroma .sh {
+    color: #b8bb26;
+}
+.chroma .si {
+    color: #b8bb26;
+}
+.chroma .sx {
+    color: #b8bb26;
+}
+.chroma .sr {
+    color: #b8bb26;
+}
+.chroma .s1 {
+    color: #b8bb26;
+}
+.chroma .ss {
+    color: #83a598;
+}
+.chroma .m {
+    color: #d3869b;
+}
+.chroma .mb {
+    color: #d3869b;
+}
+.chroma .mf {
+    color: #d3869b;
+}
+.chroma .mh {
+    color: #d3869b;
+}
+.chroma .mi {
+    color: #d3869b;
+}
+.chroma .il {
+    color: #d3869b;
+}
+.chroma .mo {
+    color: #d3869b;
+}
+.chroma .o {
+    color: #fe8019;
+}
+.chroma .ow {
+    color: #fe8019;
+}
+.chroma .c {
+    color: #928374;
+    font-style: italic;
+}
+.chroma .ch {
+    color: #928374;
+    font-style: italic;
+}
+.chroma .cm {
+    color: #928374;
+    font-style: italic;
+}
+.chroma .c1 {
+    color: #928374;
+    font-style: italic;
+}
+.chroma .cs {
+    color: #928374;
+    font-style: italic;
+}
+.chroma .cp {
+    color: #8ec07c;
+}
+.chroma .cpf {
+    color: #8ec07c;
+    font-style: italic;
+}
+.chroma .gd {
+    color: #292524;
+    background-color: #fb4934;
+}
+.chroma .ge {
+    color: #83a598;
+    text-decoration: underline;
+}
+.chroma .gr {
+    background-color: #fb4934;
+    font-weight: 700;
+}
+.chroma .gh {
+    color: #b8bb26;
+    font-weight: 700;
+}
+.chroma .gi {
+    color: #292524;
+    background-color: #b8bb26;
+}
+.chroma .go {
+    color: #504945;
+}
+.chroma .gu {
+    color: #b8bb26;
+    font-weight: 700;
+}
+.chroma .gt {
+    background-color: #fb4934;
+    font-weight: 700;
+}
