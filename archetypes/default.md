@@ -1,12 +1,12 @@
 ---
 draft: true
 
-author: {{ $.Site.Params.author }}
+author: '{{ $.Site.Params.author }}'
 title: '{{ replace .Name "-" " " | title }}'
-description: 'One sentence'
-tags: []
-date: {{ .Date }}
-lastmod: {{ .Date }}
+description: 'One sentence/line description'
+tags: ['tag1', 'tag2']
+date: '{{ .Date }}'
+lastmod: '{{ .Date }}'
 
 cover:
     path: '/media/'
@@ -17,10 +17,9 @@ show:
     meta: true
     contents: true
     footnote: true
-    sidebar: true
 ---
 
-**Content goes here.**
+**Content section**
 
 ## h2
 Text.

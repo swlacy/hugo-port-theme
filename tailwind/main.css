@@ -6,51 +6,113 @@
     --theme: #8a5751;
 }
 
-/* Code block formatting */
+/* Code styling */
+code {
+    @apply text-sm;
+}
+
+/* Code block styling */
 pre {
-    overflow: auto;
-    padding: 1em;
-    margin: 1em 0;
-    border-radius: 0.3em;
+    @apply overflow-auto;
+    @apply p-4;
+    @apply my-4;
+    @apply rounded;
+    @apply leading-normal;
     color: #ebdbb2;
     background-color: #292524;
 }
 
-/* Inline code formatting */
+/* Inline code styling */
 p code {
-    padding: 0.2em;
-    border-radius: 0.3em;
-    color: #ebdbb2;
-    background-color: #292524;
+    @apply overflow-auto;
+    @apply p-1;
+    @apply rounded;
+    @apply bg-light-secondary;
+    @apply dark:bg-dark-secondary;
 }
 
-/* Inline image formatting */
+/* Inline image styling */
 p img {
     margin: 1rem 0 1rem 0;
-    border-radius: .25rem;
+    @apply w-full;
+    @apply rounded;
+    @apply shadow;
+}
+
+/* Inline link styling */
+p a {
+    @apply text-theme;
+}
+p a:hover {
+    @apply underline;
+}
+a:hover {
+    @apply text-theme;
+}
+
+/* Inline list styling */
+#post-content ul {
+    @apply list-[circle];
+    @apply ml-4;
+    @apply mb-2;
+}
+
+/* Inline paragraph styling */
+p {
+    @apply mb-4;
+}
+
+/* Header styling */
+#header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Style the copy button */
+.copy-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    padding: 4px 8px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Position the copy button in the top-right corner of each code block */
+.highlight pre {
+    position: relative;
 }
 
 /* Blockquote */
 blockquote {
-    padding: 1em;
-    margin: 1em 0;
-    border-left: 0.3em solid #e5e7eb;
-    background-color: #f3f4f6;
+    @apply border-l-4;
+    @apply pl-2;
+    @apply bg-light-secondary;
+    @apply dark:bg-dark-secondary;
 }
 
 /* Heading anchor popup on hover */
 .hash {
     display: none;
 }
-  
 .hover-link:hover .hash {
-    display: inline-block;
-}  
+    @apply inline-block;
+}
 
-/* Heading formatting */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--theme);
-    font-weight: bold;
+/* Heading styling */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply pt-20;
+    @apply -mt-20;
+    @apply font-bold;
 }
 h1 {
     font-size: 2.5rem;
@@ -71,21 +133,28 @@ h6 {
     font-size: 1rem;
 }
 
-/* TOC indenting */
+/* TOC styling */
 #TableOfContents li a:hover {
     color: var(--theme);
 }
 #TableOfContents ul {
-    margin-left: 0;
-}
-#TableOfContents ul ul {
+    list-style-type: "➤ ";
     margin-left: 1rem;
 }
-#TableOfContents ul ul ul {
+#TableOfContents ul ul {
     margin-left: 2rem;
 }
-#TableOfContents ul ul ul ul {
+#TableOfContents ul ul ul {
     margin-left: 3rem;
+}
+#TableOfContents ul ul ul ul {
+    margin-left: 4rem;
+}
+
+/* Highlight styling */
+::selection {
+    background-color: var(--theme);
+    /* @apply text-white; */
 }
 
 /* Syntax highlighting */
@@ -113,7 +182,8 @@ h6 {
 .chroma .hl {
     background-color: #ffc;
 }
-.chroma .ln, .chroma .lnt {
+.chroma .ln,
+.chroma .lnt {
     white-space: pre;
     user-select: none;
     margin-right: 1em;

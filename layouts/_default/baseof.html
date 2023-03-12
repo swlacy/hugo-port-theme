@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
     {{- partial "head" . -}}
-    <body>
-        {{- partial "header" . -}}
-        {{- partial "sidebar" . -}}
-        <div class="m-auto" id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
+    <body class="bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text">
+        {{- partial "header" . -}} {{- partial "sidebar" . -}}
+        <div class="m-auto" id="content">{{- block "main" . }}{{- end }}</div>
         {{- partial "footer" . -}}
     </body>
     {{- partial "script" . -}}

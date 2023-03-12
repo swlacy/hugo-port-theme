@@ -1,12 +1,12 @@
-<div id="sidebar" class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
-    <div class="navbar-backdrop fixed inset-0 bg-stone-800 opacity-50"></div>
-    <nav class="relative flex flex-col py-4 px-4 h-full w-full bg-stone-800 border-r overflow-y-auto">
+<div id="sidebar" class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-full z-50">
+    <div class="navbar-backdrop fixed inset-0 opacity-50"></div>
+    <nav class="relative flex flex-col py-4 px-4 h-full w-full max-w-md bg-light-primary dark:bg-dark-primary overflow-y-auto">
         <div class="flex items-center mb-8">
             <a class="mr-auto" href="/">
                 <img class="h-6" src="{{ .Site.Params.logoPath }}" alt="{{ .Site.Title }} Logo" />
             </a>
             <button class="navbar-close">
-                <i icon-name="x" height="24px" class="text-white"></i>
+                <i icon-name="x" height="24px" class="text-white mr-3"></i>
             </button>
         </div>
         <div class="items-center mb-5">
@@ -19,43 +19,68 @@
             </div>
         </div>
         <div id="sidebar-links">
-            <ul>
+            <div class="w-full mb-6">
+                <div class="mb-4 font-mono text-2xl flex">
+                    <i icon-name="link" height="24px" class="mt-1 mr-2"></i>
+                    Links
+                </div>
                 {{ range .Site.Menus.header }}
-                <li class="mb-1">
-                    <a class="flex items-center gap-2 py-2 pt-3 text-sm font-semibold text-gray-400 hover:text-gray-50" href="{{ .URL }}">
-                        {{ if .Pre }}
-                        <i icon-name="{{ .Pre | safeHTML }}" height="14pt" class="mt-px"></i>
-                        {{ end }} {{ .Name | safeHTML }}
-                    </a>
-                </li>
+                <a class="flex text-lg hover:text-theme" href="{{ .URL }}">
+                    {{ if .Pre }}
+                    <i icon-name="{{ .Pre | safeHTML }}" height="18px" class="mt-1 mr-1"></i>
+                    {{ end }} {{ .Name | safeHTML }}
+                </a>
                 {{ end }}
-            </ul>
-        </div>
-        <div class="mt-auto">
-            <p class="my-4 text-xs text-center text-gray-400">
-                <span class="flex py-1">
+            </div>
+            <div class="w-full mb-6">
+                <div class="mb-4 font-mono text-2xl flex">
+                    <i icon-name="send" height="24px" class="mt-1 mr-2"></i>
+                    Contact
+                </div>
+                {{ range .Site.Menus.socials }}
+                <a class="flex text-lg hover:text-theme" href="{{ .URL }}" title="{{ .Name }}">
+                    <i icon-name="{{ .Pre | safeHTML }}" height="18px" class="mt-1 mr-1"></i>
+                    {{ .Name }}
+                </a>
+                {{ end }}
+            </div>
+            <div class="w-full mb-6">
+                <div class="mb-4 font-mono text-2xl flex">
+                    <i icon-name="bell-plus" height="24px" class="mt-1 mr-2"></i>
+                    Recent
+                </div>
+                {{- range ( where site.RegularPages.ByPublishDate.Reverse "Section" "in" (slice "articles" "notes") | first 5 ) }}
+                <a class="flex text-lg hover:text-theme" href="{{ .Permalink }}" title="{{ .Name }}">
+                    <i icon-name="file-plus" height="18px" class="mt-1 mr-1"></i>
+                    {{ .Name | truncate 12 }}
+                </a>
+                {{ end }}
+            </div>
+            <div class="flex flex-col lg:flex-row lg:justify-center lg:space-x-2 lg:space-y-0 space-y-1 text-xs">
+                <div class="flex">
                     <i icon-name="copyright" height="14px" class="mt-px"></i>
-                    Copyright {{ now.Format "2006" }} {{ .Site.Params.authorName }}.
-                </span>
-                <span class="flex py-1">
+                    Copyright {{ now.Format "2006" }} {{ if and .Site.Params.authorPage .Site.Params.authorName }} &nbsp;<a href="{{ .Site.Params.authorPage }}" class="underline hover:text-theme">{{ .Site.Params.authorName }}</a>
+                    {{ else if .Site.Params.authorName }} &nbsp;{{ .Site.Params.authorName }} {{ end }}
+                </div>
+                <div class="flex">
                     <i icon-name="scale" height="14px" class="mt-px"></i>
-                    All content&nbsp;<a href="{{ .Site.Params.licenseLink }}" class="underline">{{ .Site.Params.licenseName }}d</a>.
-                </span>
+                    Content&nbsp;<a href="{{ .Site.Params.licenseLink }}" class="underline hover:text-theme">{{ .Site.Params.licenseName }}d</a>
+                </div>
                 {{ if .Site.Params.attributionPage }}
-                <span class="flex py-1">
+                <div class="flex">
                     <i icon-name="library" height="14px" class="mt-px"></i>
-                    View the&nbsp;<a href="{{ .Site.Params.attributionPage }}" class="underline">attributions page</a>.
-                </span>
+                    <a href="{{ .Site.Params.attributionPage }}" class="underline hover:text-theme">Attributions page</a>
+                </div>
                 {{ end }}
-                <span class="flex py-1">
+                <div class="flex">
                     <i icon-name="palette" height="14px" class="mt-px"></i>
-                    <a href="https://github.com/lacysw/hugo-port-theme" class="underline">Port Theme</a>&nbsp;for Hugo (<a href="{{ .Site.Params.licenseLink }}" class="underline">{{ .Site.Params.licenseName }}</a>).
-                </span>
-                <span class="flex py-1">
+                    <a href="https://github.com/lacysw/hugo-port-theme" class="underline hover:text-theme">Port Theme</a>&nbsp;for Hugo
+                </div>
+                <div class="flex">
                     <i icon-name="cog" height="14px" class="mt-px"></i>
-                    Last Built {{ now.Format "January 2, 2006" }} {{ .Site.Params.timezone}}.
-                </span>
-            </p>
+                    Last Built {{ now.Format "January 2, 2006" }} {{ .Site.Params.timezone}}
+                </div>
+            </div>
         </div>
     </nav>
 </div>

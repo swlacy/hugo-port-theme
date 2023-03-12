@@ -1,11 +1,11 @@
 <div class="py-12 bg-gray-50 dark:bg-slate-800 radius-for-skewed">
     <div class="container mx-auto px-4">
-        <div class="mb-16 flex flex-wrap items-center">
+        <div class="mb-6 flex flex-wrap items-center">
             <div class="w-full lg:w-1/2">
-                <h2 class="text-4xl lg:text-5xl font-bold font-heading text-stone-800">Recent Posts</h2>
+                <h1 id="recent-posts">Recent Posts</h1>
             </div>
             <div class="hidden lg:block text-right w-1/2">
-                <a class="flex justify-end py-2 px-6 gap-2 hover:text-gray-500" href="/archive">
+                <a class="flex justify-end py-2 px-6 gap-2 hover:text-gray-500" href="/articles">
                     <i icon-name="plus" height="16pt" class="pt-px"></i>
                     View All Pages
                 </a>
@@ -21,7 +21,7 @@
                     </button>
                     <div class="panel hidden lg:block">
                         <ul>
-                            {{ range .Data.Pages }}
+                            {{ range .Data.Pages.Reverse }}
                             <li>
                                 <a class="flex items-center py-2 px-3 mb-4 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
                                     <i icon-name="{{ if .IsSection }}folder-open{{ else }}file-text{{ end }}" height="20px" class="mr-2"></i>
@@ -82,10 +82,10 @@
                     </div>
                 </a>
                 {{ end }}
-                    <a class="flex flex-wrap mb-4 py-6 px-2 bg-white shadow rounded hover:shadow-lg justify-center" href="/archive">
-                        <i icon-name="plus" height="16pt" class="pt-px"></i>
-                        More
-                    </a>
+                <a class="flex flex-wrap mb-4 py-6 px-2 bg-white shadow rounded hover:shadow-lg justify-center" href="/articles">
+                    <i icon-name="plus" height="16pt" class="pt-px"></i>
+                    More
+                </a>
             </div>
         </div>
     </div>
