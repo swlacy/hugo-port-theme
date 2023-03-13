@@ -5,14 +5,14 @@
                 <img class="h-6" src="{{ .Site.Params.logoPath }}" alt="{{ .Site.Title }} Logo" />
             </a>
             <div class="lg:hidden">
-                <button class="navbar-burger flex items-center text-light-text px-3">
+                <button class="navbar-burger flex items-center text-light-text dark:text-dark-text px-3">
                     <i icon-name="menu" height="24px"></i>
                 </button>
             </div>
             <ul class="hidden lg:mx-auto lg:flex lg:w-auto lg:space-x-6">
                 {{ range .Site.Menus.header }}
                 <li class="mb-1">
-                    <a class="flex items-center gap-2 py-2 pt-3 text-sm font-semibold text-gray-400 hover:text-gray-50" href="{{ .URL }}" title="{{ .Name }}">
+                    <a class="flex items-center gap-2 py-2 pt-3 text-sm font-semibold" href="{{ .URL }}" title="{{ .Name }}">
                         {{ if .Pre }}
                         <i icon-name="{{ .Pre | safeHTML }}" height="14pt" class="mt-px"></i>
                         {{ end }} {{ .Name | safeHTML }}
@@ -22,9 +22,9 @@
             </ul>
             <div class="hidden lg:flex items-center">
                 <div class="relative">
-                    <i icon-name="search" height="18px" class="absolute top-1/2 left-2 -translate-y-1/2 text-gray-400"></i>
+                    <i icon-name="search" height="18px" class="absolute top-1/2 left-2 -translate-y-1/2"></i>
                     <input
-                        class="w-48 h-9 py-1 pl-9 pr-4 text-sm text-coolGray-500 font-medium placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 border border-coolGray-200 rounded-lg shadow-xsm font-mono"
+                        class="w-48 h-9 py-1 pl-9 pr-4 text-sm text-light-text font-medium placeholder-theme focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 border border-coolGray-200 rounded-lg shadow-xsm font-mono"
                         type="text"
                         placeholder="Search this site" />
                 </div>
