@@ -13,7 +13,7 @@
         </div>
         <div class="flex flex-wrap -mx-3">
             <div class="mb-8 lg:mb-0 w-full lg:w-1/4 px-3">
-                <div class="py-4 px-6 bg-white shadow rounded">
+                <div class="py-4 px-6 bg-white border border-light-tertiary dark:border-dark-tertiary rounded">
                     <button class="accordion w-full flex items-center my-4 text-gray-500 font-bold text-2xl">
                         <i icon-name="folder-tree" height="24px" class="mr-2"></i>
                         Sections
@@ -54,7 +54,7 @@
             </div>
             <div class="w-full lg:w-3/4 px-3 text-stone-800">
                 {{- range ( where site.RegularPages.ByPublishDate.Reverse "Section" "in" (slice "articles" "notes") | first 8 ) }}
-                <a class="flex flex-wrap mb-4 py-6 px-2 bg-white shadow rounded hover:shadow-lg" href="{{ .Permalink }}">
+                <a class="flex flex-wrap mb-4 py-6 px-2 bg-white border border-light-tertiary dark:border-dark-tertiary rounded hover:shadow-lg" href="{{ .Permalink }}">
                     {{ if .Params.cover.path }}
                     <div class="mb-4 lg:mb-0 w-full lg:w-1/4 px-3">
                         <img class="w-full h-36 object-cover rounded bg-gray-50" src="{{ .Params.cover.path }}" alt="" />
@@ -82,7 +82,7 @@
                     </div>
                 </a>
                 {{ end }}
-                <a class="flex flex-wrap mb-4 py-6 px-2 bg-white shadow rounded hover:shadow-lg justify-center" href="/articles">
+                <a class="flex flex-wrap mb-4 py-6 px-2 justify-center" href="/articles">
                     <i icon-name="plus" height="16pt" class="pt-px"></i>
                     More
                 </a>
