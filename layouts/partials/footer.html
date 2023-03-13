@@ -8,7 +8,7 @@
         </div>
         <div class="w-full lg:w-4/5 flex flex-wrap -mx-3 justify-end">
             <div class="mb-6 w-full md:w-1/2 lg:w-1/4 px-3">
-                <div class="mb-4 font-mono text-2xl flex">
+                <div class="mb-4 font-mono font-bold text-2xl flex">
                     <i icon-name="link" height="24px" class="mt-1 mr-2"></i>
                     Links
                 </div>
@@ -21,7 +21,7 @@
                 {{ end }}
             </div>
             <div class="mb-6 w-full md:w-1/2 lg:w-1/4 px-3">
-                <div class="mb-4 font-mono text-2xl flex">
+                <div class="mb-4 font-mono font-bold text-2xl flex">
                     <i icon-name="send" height="24px" class="mt-1 mr-2"></i>
                     Contact
                 </div>
@@ -33,14 +33,14 @@
                 {{ end }}
             </div>
             <div class="mb-6 w-full md:w-1/2 lg:w-1/4 px-3">
-                <div class="mb-4 font-mono text-2xl flex">
+                <div class="mb-4 font-mono font-bold text-2xl flex">
                     <i icon-name="bell-plus" height="24px" class="mt-1 mr-2"></i>
                     Recent
                 </div>
                 {{- range ( where site.RegularPages.ByPublishDate.Reverse "Section" "in" (slice "articles" "notes") | first 5 ) }}
                 <a class="flex text-lg hover:text-theme ml-3 pl-6 border-l-2 border-light-tertiary dark:border-dark-tertiary" href="{{ .Permalink }}" title="{{ .Name }}">
                     <i icon-name="file-plus" height="18px" class="mt-1 mr-1"></i>
-                    {{ .Name | truncate 12 }}
+                    {{ .Name | truncate 8 }}
                 </a>
                 {{ end }}
             </div>

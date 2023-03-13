@@ -13,15 +13,15 @@
         {{ if .Params.cover.caption }}
         <p class="text-right text-sm italic opacity-50 -my-3 mb-2">{{ .Params.cover.caption }}</p>
         {{ end }} {{ end }} {{ if .Params.show.meta }} {{ partial "metadata2" . }} {{ end }} {{ if .Params.show.contents }} {{ partial "contents" . }} {{ end }}
-        <hr class="my-4" />
+        <hr class="mb-8 mt-4 text-light-tertiary dark:text-dark-tertiary" />
         <article id="post-content" class="mb-12 text-lg leading-relaxed">
             {{ .Content | replaceRE "(<h[1-6]\\sid=\"([^\"]+)\"\\s?>)(.+)(</h[1-6]+>)" "${1}<a class=\"anchor nodec\" href=\"#${2}\"><span class=\"hover-link\">${3}<span class=\"hash\"></span></span></a>${4}" | safeHTML }}
         </article>
         {{ if .Params.show.footnote }}
         <div class="text-lg">
-            <hr />
+            <hr class="text-light-tertiary dark:text-dark-tertiary" />
             <div class="text-center text-3xl -mb-2">***</div>
-            <hr class="mb-10" />
+            <hr class="mb-10 text-light-tertiary dark:text-dark-tertiary" />
             <p>{{ .Site.Params.footnote | markdownify }}</p>
             <div>
                 {{ if .NextPage }}

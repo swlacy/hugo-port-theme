@@ -14,13 +14,13 @@
         <div class="flex flex-wrap -mx-3">
             <div class="mb-8 lg:mb-0 w-full lg:w-1/4 px-3">
                 <div class="py-4 px-6 bg-white shadow rounded">
-                    <button class="accordion w-full flex items-center my-4 text-gray-500 font-bold uppercase">
-                        <i icon-name="folder-tree" height="20px" class="mr-2"></i>
+                    <button class="accordion w-full flex items-center my-4 text-gray-500 font-bold text-2xl">
+                        <i icon-name="folder-tree" height="24px" class="mr-2"></i>
                         Sections
                         <i icon-name="chevrons-down-up" height="20px" class="ml-auto"></i>
                     </button>
                     <div class="panel hidden lg:block">
-                        <ul>
+                        <ul class="ml-3 border-l-2 border-light-tertiary dark:border-dark-tertiary">
                             {{ range .Data.Pages.Reverse }}
                             <li>
                                 <a class="flex items-center py-2 px-3 mb-4 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
@@ -31,14 +31,14 @@
                             {{ end }}
                         </ul>
                     </div>
-                    <hr class="mb-4" />
-                    <button class="accordion w-full flex items-center mb-4 text-gray-500 font-bold uppercase">
-                        <i icon-name="tags" height="20px" class="mr-2"></i>
+                    <hr class="mb-4 text-light-tertiary dark:text-dark-tertiary" />
+                    <button class="accordion w-full flex items-center mb-4 text-gray-500 font-bold text-2xl">
+                        <i icon-name="tags" height="24px" class="mr-2"></i>
                         Tags
                         <i icon-name="chevrons-down-up" height="20px" class="ml-auto"></i>
                     </button>
                     <div class="panel hidden lg:block">
-                        <ul>
+                        <ul class="ml-3 border-l-2 border-light-tertiary dark:border-dark-tertiary">
                             {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $count := .Count }} {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
                             <li>
                                 <a class="flex items-center py-2 px-3 mb-4 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
