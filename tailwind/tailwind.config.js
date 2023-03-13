@@ -14,7 +14,8 @@ module.exports = {
             "dark-primary": "#272a32",
             "dark-secondary": "#202022",
             "dark-tertiary": "#cccccc40",
-            "dark-text": "#cccccc"
+            "dark-text": "#cccccc",
+            "no-script": "#ff6600",
         },
         extend: {}
     },
