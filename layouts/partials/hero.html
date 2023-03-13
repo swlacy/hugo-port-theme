@@ -4,7 +4,26 @@
             <div class="w-full lg:w-1/2 px-4 mb-12 md:mb-20 lg:mb-0 flex items-center">
                 <div class="w-full">
                     <div class="mb-4">
-                        <h2 class="block mb-8 text-4xl lg:text-5xl text-white font-bold">{{ .Site.Params.indexTitle }}</h2>
+                        <h2 class="block mb-6 text-4xl lg:text-5xl text-white font-bold">{{ .Site.Params.indexTitle }}</h2>
+                        <div class="mb-6 text-xl font-mono text-theme">
+                            <span class="text-light-text dark:text-dark-text">{{ .Site.Params.indexTypedPrefix | markdownify }}</span>
+                            <span id="element"></span>
+                            <script src="/js/typed.min.js"></script>
+                            <script>
+                                strs = [];
+                                {{ range .Site.Menus.typed }}
+                                strs.push("{{ .Name }}");
+                                {{ end }}
+                                var typed = new Typed("#element", {
+                                    strings: strs,
+                                    shuffle: true,
+                                    loop: true,
+                                    typeSpeed: 30,
+                                    backSpeed: 45,
+                                    cursorChar: '█'
+                                });
+                            </script>
+                        </div>
                         <span class="text-gray-400 text-xl">{{ .Site.Params.indexSubTitle | markdownify }}</span>
                         <div class="flex gap-8 mt-8">
                             {{ range .Site.Menus.socials }}

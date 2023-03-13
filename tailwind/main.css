@@ -69,6 +69,13 @@ p {
     z-index: 10;
 }
 
+/* Typing animation cursor styling */
+.typed-cursor {
+    @apply ml-1;
+    @apply bg-theme;
+    @apply text-transparent;
+}
+
 /* Style the copy button */
 .copy-btn {
     position: absolute;

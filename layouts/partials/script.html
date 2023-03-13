@@ -13,21 +13,8 @@
 <!-- Search bar query script -->
 <script src="/js/searchbar.min.js"></script>
 
-<!-- Code block toggle button script -->
-<script src="/js/copy.min.js"></script>
-
 <!-- Clickable image zoom script -->
 <script src="/js/zooming.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded",function(){let z=new Zooming({bgColor:"#00000080",scaleExtra:1,transitionDuration:.3});z.listen("p img")});
-</script>
-
-
-<script>
-    document.querySelectorAll('.expand-button').forEach(function(button) {
-  button.addEventListener('click', function() {
-    this.parentElement.classList.remove('truncated');
-    this.remove();
-  });
-});
 </script>
