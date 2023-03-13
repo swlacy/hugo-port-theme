@@ -3,10 +3,12 @@
 <div class="mx-auto py-12 px-4 bg-gray-50">
     <div class="max-w-5xl mx-auto">
         <h1>{{ .Title }}</h1>
+        {{ if gt $wordCount 0 }}
         <p class="italic">
             There are about {{ $wordCount | lang.NumFmt 0 }} words (~{{ div $wordCount 12780.0 | lang.NumFmt 1 }} hours reading time<a class="nodec" href="https://scholarwithin.com/average-reading-speed#adult-average-reading-speed">*</a>) across {{ len (where .Pages "Section"
             .Section) }} articles in this section.
         </p>
+        {{ end }}
         <hr class="pb-2" />
 
         {{ range .Pages.ByPublishDate.Reverse }}

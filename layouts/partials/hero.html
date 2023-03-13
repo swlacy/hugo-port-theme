@@ -16,11 +16,9 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full lg:w-1/2 px-4 flex items-center justify-center">
-                <div class="relative" style="z-index: 0">
-                    <img class="w-full max-w-lg object-cover rounded-full" src="{{ .Site.Params.headshot }}" alt="" />
-                </div>
-            </div>
+            <a href="{{ .Site.Params.authorPage }}" class="w-full lg:w-1/2 px-4 flex items-center justify-center" title="{{ .Site.Params.authorName }}">
+                <img class="w-full max-w-lg object-cover rounded-full" src="{{ .Site.Params.headshot }}" alt="" />
+            </a>
         </div>
     </div>
 </div>
