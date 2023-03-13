@@ -69,7 +69,10 @@ p {
     z-index: 10;
 }
 
-/* Typing animation cursor styling */
+/* Typing animation styling */
+#typed-text {
+    @apply text-theme;
+}
 .typed-cursor {
     @apply ml-1;
     @apply bg-theme;
