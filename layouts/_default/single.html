@@ -27,14 +27,14 @@
                 {{ if .NextPage }}
                 <a class="hover:text-theme w-full" href="{{ .NextPage.Permalink }}" title="{{ .NextPage.Title }}">
                     <b>→</b>
-                    <u>{{ .NextPage.Title | truncate 35 "..." }}</u>
+                    <u>{{ .NextPage.Title }}</u>
                 </a>
                 {{ end }}
                 <br />
                 {{ if .PrevPage }}
                 <a class="hover:text-theme w-full" href="{{ .PrevPage.Permalink }}" title="{{ .PrevPage.Title }}">
                     <b>←</b>
-                    <u>{{ .PrevPage.Title | truncate 35 "..." }}</u>
+                    <u>{{ .PrevPage.Title }}</u>
                 </a>
                 {{ end }}
             </div>
