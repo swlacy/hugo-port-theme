@@ -120,24 +120,25 @@ article h5,
 article h6 {
     @apply pt-20;
     @apply -mt-20;
+    @apply mb-4;
 }
 h1 {
-    font-size: 2.5rem;
+    @apply text-4xl;
 }
 h2 {
-    font-size: 2rem;
+    @apply text-3xl;
 }
 h3 {
-    font-size: 1.75rem;
+    @apply text-2xl;
 }
 h4 {
-    font-size: 1.5rem;
+    @apply text-xl;
 }
 h5 {
-    font-size: 1.25rem;
+    @apply text-lg;
 }
 h6 {
-    font-size: 1rem;
+    @apply italic;
 }
 
 /* Auto heading numbering - thank you https://codingnconcepts.com/hugo/auto-number-headings-hugo */
