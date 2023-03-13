@@ -17,7 +17,7 @@ pre {
     @apply p-4;
     @apply my-4;
     @apply rounded;
-    @apply leading-normal;
+    @apply leading-4;
     color: #ebdbb2;
     background-color: #292524;
 }
@@ -169,8 +169,9 @@ article h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "
 
 /* Highlight styling */
 ::selection {
-    background-color: var(--theme);
-    /* @apply text-white; */
+    @apply bg-theme;
+    @apply text-light-primary;
+    @apply dark:text-dark-primary;
 }
 
 /* Syntax highlighting */
