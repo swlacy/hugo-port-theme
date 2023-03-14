@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --theme: #8a5751;
-}
-
 /* Code styling */
 code {
     @apply text-sm;
@@ -162,11 +158,17 @@ article h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "
 
 /* Numbering for ToC */
 #TableOfContents ul { counter-reset: item }
-#TableOfContents li a:before { content: counters(item, ".") ". "; counter-increment: item }
+#TableOfContents li:before { content: counters(item, ".") ". "; counter-increment: item }
 
 /* ToC styling */
+#TableOfContents li:before {
+    @apply no-underline;
+}
+#TableOfContents li a {
+    @apply underline;
+}
 #TableOfContents li a:hover {
-    color: var(--theme);
+    @apply text-theme;
 }
 #TableOfContents ul ul {
     margin-left: 1rem;

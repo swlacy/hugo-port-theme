@@ -1,16 +1,16 @@
 ---
 draft: true
 
-author: '{{ $.Site.Params.author }}'
+author: '{{ $.Site.Params.authorName }}'
 title: '{{ replace .Name "-" " " | title }}'
-description: 'One sentence/line description'
-tags: ['tag1', 'tag2']
+description: ''
+tags: ['']
 date: '{{ .Date }}'
 lastmod: '{{ .Date }}'
 
 cover:
     path: '/media/'
-    alt: 'Cover image'
+    alt: ''
     caption: 'Name (Publisher, YYYY)'
 
 show:
