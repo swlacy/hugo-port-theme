@@ -56,6 +56,7 @@ a:hover {
 /* Inline paragraph styling */
 p {
     @apply mb-4;
+    @apply overflow-auto;
 }
 
 /* Header styling */
