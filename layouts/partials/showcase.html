@@ -19,12 +19,12 @@
                         Sections
                         <i icon-name="chevrons-down-up" height="20px" class="ml-auto"></i>
                     </button>
-                    <div class="panel hidden lg:block">
+                    <div class="panel hidden lg:block mb-8">
                         <ul class="ml-4 border-l border-solid border-light-tertiary dark:border-dark-tertiary">
                             {{ range .Data.Pages.Reverse }}
                             <li>
                                 {{ if not (in .Permalink "search") }}
-                                <a class="flex items-center py-2 px-3 mb-4 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
+                                <a class="flex items-center py-2 px-3 mb-2 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
                                     <i icon-name="{{ if .IsSection }}folder-open{{ else }}file-text{{ end }}" height="20px" class="mr-2"></i>
                                     {{ .Name }}
                                 </a>
@@ -42,7 +42,7 @@
                         <ul class="ml-4 border-l border-solid border-light-tertiary dark:border-dark-tertiary">
                             {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $count := .Count }} {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
                             <li>
-                                <a class="flex items-center py-2 px-3 mb-4 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
+                                <a class="flex items-center py-2 px-3 mb-2 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
                                     <i icon-name="hash" height="20px" class="mr-2"></i>
                                     {{ .Name }}
                                     <sup><i class="pl-1 text-xs">({{ $count }})</i></sup>
