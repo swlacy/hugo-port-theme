@@ -1,0 +1,20 @@
+<div class="mb-6 text-xl font-mono">
+    <a href="/resume">
+    <span class="text-light-text dark:text-dark-text">{{ .Site.Params.indexTypedPrefix | markdownify }}</span>
+    <span id="typed-text"></span>
+    <script src="/js/typed.min.js"></script>
+    <script>
+        strs = [];
+        {{ range .Site.Menus.typed }}
+        strs.push("{{ .Name }}");
+        {{ end }}
+        var typed = new Typed("#typed-text", {
+            strings: strs,
+            loop: false,
+            typeSpeed: 60,
+            backSpeed: 45,
+            cursorChar: '█'
+        });
+    </script>
+    </a>
+</div>
