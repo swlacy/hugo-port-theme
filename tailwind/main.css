@@ -14,29 +14,37 @@ pre {
     @apply my-4;
     @apply rounded;
     @apply leading-4;
-    color: #ebdbb2;
-    background-color: #292524;
 }
 
 /* Inline code styling */
 p code {
-    @apply overflow-auto;
     @apply p-1;
     @apply rounded;
     @apply bg-light-secondary;
     @apply dark:bg-dark-secondary;
 }
 
+/* Inline paragraph styling */
+p {
+    @apply mb-4;
+}
+p:not(:has(img)) {
+    @apply overflow-auto;
+}
+
 /* Inline image styling */
 p img {
-    margin: 1rem 0 1rem 0;
+    @apply mt-4;
+    @apply mb-4;
     @apply w-full;
     @apply rounded;
     @apply shadow;
 }
 
 /* Inline link styling */
-p a {
+p a,
+article ul li a,
+article ol li a {
     @apply text-theme;
 }
 p a:hover {
@@ -53,17 +61,11 @@ a:hover {
     @apply mb-2;
 }
 
-/* Inline paragraph styling */
-p {
-    @apply mb-4;
-    @apply overflow-auto;
-}
-
 /* Header styling */
 #header {
     position: sticky;
-    top: 0;
-    z-index: 10;
+    @apply top-0;
+    @apply z-50;
 }
 
 /* Typing animation styling */
@@ -76,22 +78,9 @@ p {
     @apply text-transparent;
 }
 
-/* Style the copy button */
-.copy-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 14px;
-    padding: 4px 8px;
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-    z-index: 1;
-}
-
 /* Position the copy button in the top-right corner of each code block */
 .highlight pre {
-    position: relative;
+    @apply relative;
 }
 
 /* Blockquote */
@@ -104,7 +93,7 @@ blockquote {
 
 /* Heading anchor popup on hover */
 .hash {
-    display: none;
+    @apply hidden;
 }
 .hover-link:hover .hash {
     @apply inline-block;
@@ -149,17 +138,39 @@ h6 {
 }
 
 /* Auto heading numbering - thank you https://codingnconcepts.com/hugo/auto-number-headings-hugo */
-body {counter-reset: h2}
-h2 {counter-reset: h3}
-h3 {counter-reset: h4}
-h4 {counter-reset: h5}
-article h2:before {counter-increment: h2; content: counter(h2) ". "}
-article h3:before {counter-increment: h3; content: counter(h2) "." counter(h3) ". "}
-article h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "." counter(h4) ". "}
+body {
+    counter-reset: h2;
+}
+h2 {
+    counter-reset: h3;
+}
+h3 {
+    counter-reset: h4;
+}
+h4 {
+    counter-reset: h5;
+}
+article h2:before {
+    counter-increment: h2;
+    content: counter(h2) ". ";
+}
+article h3:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) ". ";
+}
+article h4:before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+}
 
 /* Numbering for ToC */
-#TableOfContents ul { counter-reset: item }
-#TableOfContents li:before { content: counters(item, ".") ". "; counter-increment: item }
+#TableOfContents ul {
+    counter-reset: item;
+}
+#TableOfContents li:before {
+    content: counters(item, ".") ". ";
+    counter-increment: item;
+}
 
 /* ToC styling */
 #TableOfContents li:before {
@@ -172,13 +183,13 @@ article h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "
     @apply text-theme;
 }
 #TableOfContents ul ul {
-    margin-left: 1rem;
+    @apply ml-4;
 }
 #TableOfContents ul ul ul {
-    margin-left: 2rem;
+    @apply ml-8;
 }
 #TableOfContents ul ul ul ul {
-    margin-left: 3rem;
+    @apply ml-12;
 }
 
 /* Highlight styling */
@@ -189,9 +200,11 @@ article h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "
 }
 
 /* Syntax highlighting */
-.chroma {
-    color: #ebdbb2;
-    background-color: #292524;
+pre {
+    @apply text-light-text;
+    @apply bg-light-secondary;
+    @apply dark:text-dark-text;
+    @apply dark:bg-dark-secondary;
 }
 .chroma .lnlinks {
     outline: none;
