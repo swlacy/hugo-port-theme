@@ -10,7 +10,7 @@
         {{ end }}
         {{ if .Params.show.meta }} {{ partial "metadata" . }} {{ end }} {{ if .Params.cover.path }}
         <p class="">
-            <img class="rounded object-cover mx-auto h-96 w-full" src="{{ .Params.cover.path }}" alt="{{ .Params.cover.alt }}" />
+            <img class="rounded object-cover mx-auto w-full" src="{{ .Params.cover.path }}" alt="{{ .Params.cover.alt }}" />
         </p>
         {{ if .Params.cover.caption }}
         <p class="text-right text-sm italic opacity-50 -my-3 mb-2">{{ .Params.cover.caption }}</p>
