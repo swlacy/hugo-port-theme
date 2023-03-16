@@ -9,7 +9,7 @@
                     <div class="mb-4">
                         <h2 class="block mb-6 text-4xl lg:text-5xl text-white font-bold">{{ .Site.Params.indexTitle }}</h2>
                         {{ partial "typed" . }}
-                        <span class="text-gray-400 text-xl">{{ .Site.Params.indexSubTitle | markdownify }}</span>
+                        <div class="text-gray-400 text-xl">{{ .Site.Params.indexSubTitle | markdownify }}</div>
                         <div class="flex gap-8 mt-6">
                             {{ range .Site.Menus.socials }}
                             <a class="text-gray-400 hover:text-gray-50" href="{{ .URL }}" title="{{ .Name }}">
