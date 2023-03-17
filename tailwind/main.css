@@ -17,9 +17,10 @@ pre {
 }
 
 /* Inline code styling */
-p code {
+p code, ul code, ol code, li code, blockquote code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
     @apply p-1;
     @apply rounded;
+    @apply break-words;
     @apply bg-light-secondary;
     @apply dark:bg-dark-secondary;
 }
