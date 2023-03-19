@@ -1,31 +1,31 @@
 <div class="hidden lg:flex flex-col lg:flex-row lg:space-x-4 lg:space-y-0 space-y-1 -mx-1 mb-4 rounded font-mono">
     {{ if .Site.Params.authorName }}
-    <div class="flex">
+    <div class="flex" title="Author">
         <i icon-name="user" height="16px" class="mt-1 mr-1"></i>
         <a href="{{ .Site.Params.authorPage }}" class="underline">{{ .Site.Params.authorName }}</a>
     </div>
     {{ end }}
-    <div class="flex">
+    <div class="flex" title="Date of publishing">
         <i icon-name="calendar" height="16px" class="mt-1 mr-1"></i>
         {{ .Date.Format "2006-01-02" }}
     </div>
     {{ if gt (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
-    <div class="flex">
+    <div class="flex" title="Date last modified">
         <i icon-name="edit-3" height="16px" class="mt-1 mr-1"></i>
         {{ .Lastmod.Format "2006-01-02" }}
     </div>
     {{ end }}
-    <div class="flex">
+    <div class="flex" title="Estimated reading time">
         <i icon-name="clock" height="16px" class="mt-1 mr-1"></i>
         ~{{ .ReadingTime }} min
     </div>
     {{ if and .GitInfo .Site.Params.repoLink }}
-    <div class="flex">
+    <div class="flex" title="Related git commit">
         <i icon-name="git-commit" height="16px" class="mt-1 mr-1"></i>
         <a href="{{ .Site.Params.repoLink}}/commit/{{ .GitInfo.Hash }}" target="_blank" rel="noopener noreferrer" class="underline">{{ .GitInfo.AbbreviatedHash }}...</a>
     </div>
     {{ end }} {{- with .Params.tags -}} {{- if ge (len .) 1 -}}
-    <div class="inline-flex">
+    <div class="inline-flex" title="Tag(s)">
         <i icon-name="tag" height="16px" class="mt-1 mr-1"></i>
         <span>
             {{- range . -}}
