@@ -3,8 +3,8 @@
     <div class="max-w-5xl mx-auto">
         <h2 class="mb-4">Site Search</h2>
         <button class="accordion w-full flex items-center mb-1 hover:text-theme" title="Table of contents">
-            <i icon-name="help-circle" height="16px" class="-mx-1 text-light-text dark:text-dark-text"></i>&nbsp;
-            <span class="ml-1 sm:ml-0 text-light-text dark:text-dark-text">Search Help: Advanced Search Operators</span>
+            <i icon-name="regex" height="16px" class="-mx-1 text-light-text dark:text-dark-text"></i>&nbsp;
+            <b class="ml-1 sm:ml-0 text-light-text dark:text-dark-text">Search Help: Advanced Search Operators</b>
             <i icon-name="chevrons-down-up" height="16px" class="ml-auto -mr-3"></i>&nbsp;
         </button>
         <div id="search-help" class="panel hidden lg:block pl-6 ml-2 border-l border-solid border-light-tertiary dark:border-dark-tertiary" title="Search Help">
@@ -20,10 +20,13 @@
         <hr class="border border-dashed my-8 text-light-tertiary dark:text-dark-tertiary" />
         <h3 class="mb-4">Search Results:</h3>
         <ul id="results">
-            <li class="flex text-theme">
-                <i icon-name="x-octagon" height="16px" class="-ml-1 my-1"></i>
-                <b>No query was provided.</b>&nbsp;Either type a search query in the header or navigate to&nbsp;
-                <mono class="my-px font-mono">/search/?q=search_query</mono>
+            <li class="lg:flex-wrap text-theme">
+                <span class="flex">
+                    <i icon-name="x-octagon" height="16px" class="-ml-1 my-1"></i>
+                    <b>No search query was provided.</b>
+                </span>
+                Either type a search query in the header or navigate to
+                <span class="my-px font-mono">/search/?q=search_query</span>
             </li>
         </ul>
     </div>
