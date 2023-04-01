@@ -1,3 +1,31 @@
 {{ define "main" }}
-<div class="grid h-96 place-items-center">Search functionality pending.</div>
+<div class="mx-auto py-6 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="mb-4">Site Search</h2>
+        <button class="accordion w-full flex items-center mb-1 hover:text-theme" title="Table of contents">
+            <i icon-name="help-circle" height="16px" class="-mx-1 text-light-text dark:text-dark-text"></i>&nbsp;
+            <span class="ml-1 sm:ml-0 text-light-text dark:text-dark-text">Search Help: Advanced Search Operators</span>
+            <i icon-name="chevrons-down-up" height="16px" class="ml-auto -mr-3"></i>&nbsp;
+        </button>
+        <div id="search-help" class="panel hidden lg:block pl-6 ml-2 border-l border-solid border-light-tertiary dark:border-dark-tertiary" title="Search Help">
+            The search bar in the header can be used to look for one or more case-insensitive strings contained in the content body of this site, space delineated. See the examples below for more advanced search queries.
+            <ul class="mt-2">
+                <li><b>Fuzzyness:</b> <code>foo~1</code> returns articles containing "foo" and permutations of "foo" within a one-char difference (e.g. "foz")</li>
+                <li><b>Wildcards:</b> <code>bar*</code> returns articles containing "bar" and any subsequent character(s)</li>
+                <li><b>Title tags:</b> <code>title:baz</code> returns articles containing "baz" in their titles</li>
+                <li><b>Operators:</b> <code>+quux -xyzzy</code> returns articles containing "quux" but not "xyzzy"</li>
+                <li><b>Weights:</b> <code>corge^10 grault^2</code> returns articles containing "corge" and/or "grault" but "corge" will have 5x relevance</li>
+            </ul>
+        </div>
+        <hr class="border border-dashed my-8 text-light-tertiary dark:text-dark-tertiary" />
+        <h3 class="mb-4">Search Results:</h3>
+        <ul id="results">
+            <li class="flex text-theme">
+                <i icon-name="x-octagon" height="16px" class="-ml-1 my-1"></i>
+                <b>No query was provided.</b>&nbsp;Either type a search query in the header or navigate to&nbsp;
+                <mono class="my-px font-mono">/search/?q=search_query</mono>
+            </li>
+        </ul>
+    </div>
+</div>
 {{ end }}

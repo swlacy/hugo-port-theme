@@ -19,5 +19,23 @@
 <!-- Clickable image zoom script -->
 <script src="/js/zooming.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded",function(){let z=new Zooming({bgColor:"#00000080",scaleExtra:1,transitionDuration:.3});z.listen("p img")});
+    document.addEventListener("DOMContentLoaded", function () {
+        let z = new Zooming({ bgColor: "#00000080", scaleExtra: 1, transitionDuration: 0.3 });
+        z.listen("p img");
+    });
 </script>
+
+<!-- Lunr search (ty to victoria.dev for implementation!)-->
+<script>
+    window.store = {
+        {{ range .Site.Pages }}
+        "{{ .Permalink }}": {
+            "title": "{{ .Title  }}",
+            "content": {{ .Content | plainify }},
+            "url": "{{ .Permalink }}"
+        },
+        {{ end }}
+    }
+</script>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.min.js"></script>

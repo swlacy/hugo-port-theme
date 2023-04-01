@@ -56,10 +56,13 @@ a:hover {
 }
 
 /* Inline list styling */
-#post-content ul {
+#post-content ul, #search-help ul {
     @apply list-[circle];
     @apply ml-4;
     @apply mb-2;
+}
+#search-help ul li {
+    @apply my-1;
 }
 
 /* Header styling */
