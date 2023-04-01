@@ -10,13 +10,17 @@
             </button>
         </div>
         <div class="items-center mb-5">
-            <div class="relative">
-                <i icon-name="search" height="18px" class="absolute top-1/2 left-2 -translate-y-1/2"></i>
+            <form class="relative">
+                <button type="submit">
+                    <i icon-name="search" height="18px" class="absolute top-1/2 left-2 -translate-y-1/2"></i>
+                </button>
                 <input
-                    class="w-full h-9 py-1 pl-9 pr-4 text-sm text-light-text font-medium focus:outline-none focus:ring-2 focus:ring-theme focus:ring-opacity-50 border rounded-lg shadow-xsm font-mono"
+                    class="w-96 h-9 py-1 pl-9 pr-4 text-sm text-light-text font-medium focus:outline-none focus:ring-2 focus:ring-theme focus:ring-opacity-50 border rounded-lg shadow-xsm font-mono"
                     type="text"
+                    id="search-input"
+                    name="q"
                     placeholder="Search this site" />
-            </div>
+            </form>
         </div>
         <div id="sidebar-links">
             <div class="w-full mb-6">
