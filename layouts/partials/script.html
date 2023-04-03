@@ -5,27 +5,93 @@
 </script>
 
 <!-- Sidebar open/close toggle script -->
-<script src="/js/sidebar.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const e = document.querySelectorAll(".navbar-burger"),
+            n = document.querySelectorAll(".navbar-menu");
+        if (e.length && n.length)
+            for (var t = 0; t < e.length; t++)
+                e[t].addEventListener("click", function () {
+                    for (var e = 0; e < n.length; e++) n[e].classList.toggle("hidden");
+                });
+        const l = document.querySelectorAll(".navbar-close"),
+            r = document.querySelectorAll(".navbar-backdrop");
+        if (l.length)
+            for (t = 0; t < l.length; t++)
+                l[t].addEventListener("click", function () {
+                    for (var e = 0; e < n.length; e++) n[e].classList.toggle("hidden");
+                });
+        if (r.length)
+            for (t = 0; t < r.length; t++)
+                r[t].addEventListener("click", function () {
+                    for (var e = 0; e < n.length; e++) n[e].classList.toggle("hidden");
+                });
+    });
+</script>
 
 <!-- Accordion open/close toggle script -->
-<script src="/js/accordion.min.js"></script>
+<script>
+    var i,
+        acc = document.getElementsByClassName("accordion");
+    for (i = 0; i < acc.length; i++)
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var e = this.nextElementSibling;
+            "block" === e.style.display ? (e.style.display = "none") : (e.style.display = "block");
+        });
+</script>
 
 <!-- Theme toggle script -->
-<script src="/js/theme.min.js"></script>
+<script>
+    // Credit to https://www.freecodecamp.org/news/how-to-build-a-dark-mode-switcher-with-tailwind-css-and-flowbite/
+    var e = document.getElementById("theme-toggle-dark-icon"),
+        t = document.getElementById("theme-toggle-light-icon");
+    "dark" === localStorage.getItem("color-theme") || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) ? t.classList.remove("hidden") : e.classList.remove("hidden"),
+        document.getElementById("theme-toggle").addEventListener("click", function () {
+            e.classList.toggle("hidden"),
+                t.classList.toggle("hidden"),
+                localStorage.getItem("color-theme")
+                    ? "light" === localStorage.getItem("color-theme")
+                        ? (document.documentElement.classList.add("dark"), localStorage.setItem("color-theme", "dark"))
+                        : (document.documentElement.classList.remove("dark"), localStorage.setItem("color-theme", "light"))
+                    : document.documentElement.classList.contains("dark")
+                    ? (document.documentElement.classList.remove("dark"), localStorage.setItem("color-theme", "light"))
+                    : (document.documentElement.classList.add("dark"), localStorage.setItem("color-theme", "dark"));
+        });
+</script>
 
 <!-- Jump to top button script -->
-<script src="/js/jump.min.js"></script>
+<script>
+    let b = document.getElementById("jump");
+    function scrollFunction() {
+        document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? (b.style.display = "block") : (b.style.display = "none");
+    }
+    function topFunction() {
+        (document.body.scrollTop = 0), (document.documentElement.scrollTop = 0);
+    }
+    window.onscroll = function () {
+        scrollFunction();
+    };
+</script>
 
 <!-- Clickable image zoom script -->
-<script src="/js/zooming.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let z = new Zooming({ bgColor: "#00000080", scaleExtra: 1, transitionDuration: 0.3 });
         z.listen("p img");
     });
 </script>
+
 <!-- Search bar query script -->
-<script src="/js/searchbar.min.js"></script>
+<script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let r = document.querySelector("#search-input"),
+            t = r.value.trim();
+        "" !== t && (window.location.href = `/search?query=${t}`);
+    });
+</script>
 
 <!-- Lunr search (ty to victoria.dev for implementation!)-->
 <script>
@@ -39,5 +105,36 @@
         {{ end }}
     }
 </script>
+
+<!-- Lunr search script -->
 <script src="/js/lunr.min.js"></script>
-<script src="/js/search.min.js"></script>
+
+<!-- Zooming lib -->
+<script src="/js/zooming.min.js"></script>
+
+<!-- Search results script -->
+<script>
+    function displayResults(t, e) {
+        let s = document.getElementById("results");
+        if (t.length) {
+            let l,
+                n = '<h3 class="mb-4">Match' + (t.length > 1 ? "es" : "") + " found" + (t.length > 1 ? " (" + t.length + ")" : "") + ":</h3>";
+            for (let i in (t.length, t)) {
+                let r = e[t[i].ref];
+                (n += '<li><a href="' + r.url + '"><b class="underline">' + r.title + "</b>"), (n += '<p class="truncate ..."><i>' + r.content.substring(0, 160) + "</i></p></a></li>");
+            }
+            s.innerHTML = n;
+        } else s.innerHTML = "<i>Sorry, no results were found for that query :/ .</i>";
+    }
+    const params = new URLSearchParams(window.location.search),
+        query = params.get("query");
+    if (query) {
+        document.getElementById("search-input").setAttribute("value", query);
+        let t = lunr(function () {
+                for (let t in (this.ref("id"), this.field("title", { boost: 15 }), this.field("tags"), this.field("content", { boost: 10 }), window.store))
+                    this.add({ id: t, title: window.store[t].title, tags: window.store[t].category, content: window.store[t].content });
+            }),
+            e = t.search(query);
+        displayResults(e, window.store);
+    }
+</script>
