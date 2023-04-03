@@ -1,15 +1,14 @@
 {{ define "main" }}
 <div class="mx-auto py-6 px-4 bg-gray-50">
     <div class="max-w-5xl mx-auto">
-        <h2 class="mb-2">Site Search</h2>
+        <h2 class="mb-4">Site Search</h2>
         {{ partial "search-form.html" . }}
-        <button class="accordion w-full flex items-center mb-1 hover:text-theme" title="Table of contents">
+        <button class="accordion w-full flex items-center mt-2 mb-1 hover:text-theme" title="Table of contents">
             <i icon-name="regex" height="16px" class="-mx-1 text-light-text dark:text-dark-text"></i>&nbsp;
             <b class="ml-1 sm:ml-0 text-light-text dark:text-dark-text">Advanced Search Operators</b>
             <i icon-name="chevrons-down-up" height="16px" class="ml-auto -mr-3"></i>&nbsp;
         </button>
         <div id="search-help" class="panel hidden lg:block pl-3 ml-2 border-l border-solid border-light-tertiary dark:border-dark-tertiary" title="Search Help">
-            The search field can be used to look for one or more case-insensitive strings contained in the content body of this site, space delineated. See the examples below for more advanced search queries.
             <ul class="mt-2">
                 <li><b>Fuzzyness:</b> <code>foo~1</code> returns articles containing "foo" and permutations of "foo" within a one-char difference (e.g. "foz")</li>
                 <li><b>Wildcards:</b> <code>bar*</code> returns articles containing "bar" and any subsequent character(s)</li>
