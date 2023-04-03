@@ -1,5 +1,4 @@
 {{ define "main" }} {{ $wordCount := 0 }} {{ range where .Pages "Section" .Section }} {{ $wordCount = add $wordCount (len (split .Plain " ")) }} {{ end }}
-<meta name="description" content="{{ .Site.Title }} | {{ .Title }}" />
 <div class="mx-auto py-12 px-4 bg-gray-50">
     <div class="max-w-5xl mx-auto">
         <h1>{{ .Title }}</h1>
