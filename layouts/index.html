@@ -1,1 +1,3 @@
-{{ define "main" }} {{ partial "hero" . }} {{ partial "showcase" . }} {{ end }}
+{{ define "main" }}
+<meta name="description" content="{{ .Site.Title }} | Homepage" />
+{{ partial "hero" . }} {{ partial "showcase" . }} {{ end }}

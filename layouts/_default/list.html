@@ -1,4 +1,5 @@
 {{ define "main" }} {{ $wordCount := 0 }} {{ range where .Pages "Section" .Section }} {{ $wordCount = add $wordCount (len (split .Plain " ")) }} {{ end }}
+<meta name="description" content="{{ .Site.Title }} | {{ .Title }}" />
 <div class="mx-auto py-12 px-4 bg-gray-50">
     <div class="max-w-5xl mx-auto">
         <h1>{{ .Title }}</h1>
@@ -9,7 +10,6 @@
         </p>
         {{ end }}
         <hr class="pb-2" />
-
         {{ range .Pages.ByPublishDate.Reverse }}
         <p class="flex font-mono">
             <span class="hidden lg:block">
@@ -18,7 +18,6 @@
             </span>
             <a href="{{ .Permalink }}" class="underline">{{ .Section | title }}/{{ .Title }}</a>
         </p>
-
         {{ end }}
     </div>
 </div>
