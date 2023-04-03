@@ -15,7 +15,7 @@
             <div class="mb-8 lg:mb-0 w-full lg:w-1/4 px-3">
                 <div class="lg:hidden mb-4">{{ partial "search-form.html" . }}</div>
                 <div class="py-4 px-6 bg-white border border-light-tertiary dark:border-dark-tertiary rounded">
-                    <button class="accordion w-full flex items-center mb-4 font-bold text-2xl hover:text-theme">
+                    <button class="accordion w-full flex items-center mb-4 font-bold text-2xl hover:text-theme" name="Sections" title="Sections">
                         <i icon-name="folder-tree" height="24px" class="mr-2 text-light-text dark:text-dark-text"></i>
                         <span class="text-light-text dark:text-dark-text">Sections</span>
                         <i icon-name="chevrons-down-up" height="20px" class="ml-auto"></i>
@@ -34,7 +34,7 @@
                             {{ end }}
                         </ul>
                     </div>
-                    <button class="accordion w-full flex items-center font-bold text-2xl hover:text-theme">
+                    <button class="accordion w-full flex items-center font-bold text-2xl hover:text-theme" name="Tags" title="Tags">
                         <i icon-name="tags" height="24px" class="mr-2 text-light-text dark:text-dark-text"></i>
                         <span class="text-light-text dark:text-dark-text">Tags</span>
                         <i icon-name="chevrons-down-up" height="20px" class="ml-auto"></i>

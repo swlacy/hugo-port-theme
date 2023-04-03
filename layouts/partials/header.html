@@ -16,13 +16,13 @@
                 {{ end }}
             </ul>
             <div class="flex">
-                <button id="theme-toggle" type="button">
+                <button id="theme-toggle" type="button" title="Toggle dark mode" name="Toggle dark mode">
                     <i icon-name="sunrise" id="theme-toggle-light-icon" class="w-5 h-5 hidden"></i>
                     <i icon-name="sunset" id="theme-toggle-dark-icon" class="w-5 h-5 hidden"></i>
                 </button>
                 <div class="hidden lg:block ml-4 mt-1">{{ partial "search-form.html" . }}</div>
                 <div class="lg:hidden">
-                    <button class="navbar-burger flex items-center text-light-text dark:text-dark-text px-3">
+                    <button class="navbar-burger flex items-center text-light-text dark:text-dark-text px-3" title="Toggle sidebar" name="Toggle sidebar">
                         <i icon-name="menu" height="24px"></i>
                     </button>
                 </div>
