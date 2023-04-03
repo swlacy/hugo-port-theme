@@ -1,14 +1,9 @@
 <div id="header">
     <nav class="relative py-4 bg-light-secondary dark:bg-dark-secondary border-b border-light-tertiary dark:border-dark-tertiary">
-        <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="mx-auto px-4 flex justify-between items-center">
             <a href="/">
                 <img class="h-6" src="{{ .Site.Params.logoPath }}" alt="{{ .Site.Title }} Logo" />
             </a>
-            <div class="lg:hidden">
-                <button class="navbar-burger flex items-center text-light-text dark:text-dark-text px-3">
-                    <i icon-name="menu" height="24px"></i>
-                </button>
-            </div>
             <ul class="hidden lg:mx-auto lg:flex lg:w-auto lg:space-x-6">
                 {{ range .Site.Menus.header }}
                 <li class="mb-1">
@@ -20,8 +15,17 @@
                 </li>
                 {{ end }}
             </ul>
-            <div class="hidden lg:flex items-center">
-                {{ partial "search-form.html" . }}
+            <div class="flex">
+                <button id="theme-toggle" type="button">
+                    <i icon-name="sunrise" id="theme-toggle-light-icon" class="w-5 h-5 hidden"></i>
+                    <i icon-name="sunset" id="theme-toggle-dark-icon" class="w-5 h-5 hidden"></i>
+                </button>
+                <div class="hidden lg:block ml-4 mt-1">{{ partial "search-form.html" . }}</div>
+                <div class="lg:hidden">
+                    <button class="navbar-burger flex items-center text-light-text dark:text-dark-text px-3">
+                        <i icon-name="menu" height="24px"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
