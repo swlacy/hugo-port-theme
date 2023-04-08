@@ -22,16 +22,24 @@
                     </button>
                     <div class="panel hidden lg:block mb-8">
                         <ul class="ml-4 border-l border-solid border-light-tertiary dark:border-dark-tertiary">
-                            {{ range .Data.Pages.Reverse }}
+                            {{ range .Data.Pages.Reverse }} {{ if .IsSection }}
                             <li>
-                                {{ if not (in .Permalink "search") }}
                                 <a class="flex items-center py-2 px-3 mb-2 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
-                                    <i icon-name="{{ if .IsSection }}folder-open{{ else }}file-text{{ end }}" height="20px" class="mr-2"></i>
+                                    {{ if not (in .Permalink "search") }}
+                                    <i icon-name="folder-open" height="20px" class="mr-2"></i>
+                                    {{ else }}
+                                    <i icon-name="search" height="20px" class="mr-2"></i>
+                                    {{ end }} {{ index (split .Name " ") 0 }}
+                                </a>
+                            </li>
+                            {{ end }} {{ end }} {{ range .Data.Pages.Reverse }} {{ if not .IsSection }}
+                            <li>
+                                <a class="flex items-center py-2 px-3 mb-2 rounded text-gray-600 hover:text-stone-800 bg-gray-50 hover:bg-gray-100" href="{{ .Permalink }}">
+                                    <i icon-name="file-text" height="20px" class="mr-2"></i>
                                     {{ .Name }}
                                 </a>
-                                {{ end }}
                             </li>
-                            {{ end }}
+                            {{ end }} {{ end }}
                         </ul>
                     </div>
                     <button class="accordion w-full flex items-center font-bold text-2xl hover:text-theme" name="Tags" title="Tags">
