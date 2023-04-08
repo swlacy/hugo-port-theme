@@ -55,6 +55,14 @@ a:hover {
     @apply text-theme;
 }
 
+/* Post HR spacing */
+#post-content hr {
+    @apply mt-8;
+    @apply mb-6;
+    @apply text-light-tertiary;
+    @apply dark:text-dark-tertiary;
+}
+
 /* Inline list styling */
 #post-content ul, #search-help ul {
     @apply list-[circle];
