@@ -124,7 +124,7 @@
                 (n += '<li><a href="' + r.url + '"><b class="underline">' + r.title + "</b>"), (n += '<p class="truncate ..."><i>' + r.content.substring(0, 160) + "</i></p></a></li>");
             }
             s.innerHTML = n;
-        } else s.innerHTML = "<i>Sorry, no results were found for that query :/ .</i>";
+        } else s.innerHTML = n = '<span class="mb-4 text-theme"><b>⚠ Sorry, no matches were found for \'' + q + '\'.</b> Try searching for something else.</span>';
     }
     const params = new URLSearchParams(window.location.search),
         query = params.get("query");
