@@ -17,7 +17,17 @@ pre {
 }
 
 /* Inline code styling */
-p code, ul code, ol code, li code, blockquote code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+p code,
+ul code,
+ol code,
+li code,
+blockquote code,
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
     @apply p-1;
     @apply rounded;
     @apply break-words;
@@ -64,7 +74,8 @@ a:hover {
 }
 
 /* Inline list styling */
-#post-content ul, #search-help ul {
+#post-content ul,
+#search-help ul {
     @apply list-[circle];
     @apply ml-4;
     @apply mb-2;
@@ -214,6 +225,11 @@ article h4:before {
     @apply bg-theme;
     @apply text-light-primary;
     @apply dark:text-dark-primary;
+}
+
+/* Make color changes fade with transition */
+* {
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 /* Syntax highlighting */
