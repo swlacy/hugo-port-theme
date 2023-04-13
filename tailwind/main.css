@@ -230,9 +230,9 @@ article h4:before {
 /* Only apply animations when screen size is md or above */
 @media (min-width: 768px) {
     /* Make color changes fade with transition */
-    * {
+    /* * {
         transition: color 0.2s ease, background-color 0.2s ease;
-    }
+    } */
 
     /* Animate opening accordion menus */
     .panel {
