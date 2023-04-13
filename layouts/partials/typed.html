@@ -2,7 +2,7 @@
     <a href="/resume">
     <span class="text-light-text dark:text-dark-text">{{ .Site.Params.indexTypedPrefix | markdownify }}</span>
     <span id="typed-text"></span>
-    <script src="/js/typed.min.js"></script>
+    <script src="/js/typed.umd.js"></script>
     <script>
         strs = [];
         {{ range .Site.Menus.typed }}
