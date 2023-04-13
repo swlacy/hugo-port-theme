@@ -229,18 +229,14 @@ article h4:before {
 
 /* Make color changes fade with transition */
 * {
-    @apply transition-colors;
-    @apply duration-200;
-    @apply ease-in-out;
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 /* Animate opening accordion menus */
 .panel {
     @apply overflow-hidden;
-    @apply transition-max-height;
-    @apply duration-200;
-    @apply ease-in-out;
     @apply max-h-0;
+    transition: max-height 0.2s ease;
 }
 
 /* Syntax highlighting */
