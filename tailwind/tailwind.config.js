@@ -15,9 +15,14 @@ module.exports = {
             "dark-secondary": "#2d2d2d",
             "dark-tertiary": "#e4e4e440",
             "dark-text": "#e4e4e4",
-            "no-script": "#ff6600",
+            "no-script": "#ff6600"
         },
-        extend: {}
+        extend: {
+            backgroundImage: {
+                "index-light": "linear-gradient(0deg, #ffffff, #ffffff40), url('/media/index.webp');",
+                "index-dark": "linear-gradient(0deg, #222222, #22222240), url('/media/index.webp');",
+            }
+        }
     },
     plugins: []
 };
