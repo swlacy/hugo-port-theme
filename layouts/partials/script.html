@@ -31,7 +31,27 @@
 
 <!-- Accordion menu open/close toggle script -->
 <script>
-    var i,acc=document.getElementsByClassName("accordion");for(i=0;i<acc.length;i++){var e=acc[i].nextElementSibling;window.innerWidth<1024?(e.style.maxHeight=null,acc[i].classList.remove("expanded")):(e.style.maxHeight=e.scrollHeight+"px",acc[i].classList.add("expanded")),acc[i].addEventListener("click",function(){this.classList.toggle("expanded");var e=this.nextElementSibling;e.style.maxHeight?e.style.maxHeight=null:e.style.maxHeight=e.scrollHeight+"px"}),window.addEventListener("resize",function(){window.innerWidth<1024?(e.style.maxHeight=null,acc[i].classList.remove("expanded")):(e.style.maxHeight=e.scrollHeight+"px",acc[i].classList.add("expanded"))})}
+    var i,
+        acc = document.getElementsByClassName("accordion");
+    for (i = 0; i < acc.length; i++) {
+        var panel = acc[i].nextElementSibling;
+        if (window.innerWidth < 1024) {
+            panel.style.maxHeight = null;
+            acc[i].classList.remove("expanded");
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            acc[i].classList.add("expanded");
+        }
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("expanded");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
 </script>
 
 <!-- Theme toggle script -->
