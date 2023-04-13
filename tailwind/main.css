@@ -98,7 +98,7 @@ a:hover {
 
 /* Typing animation styling */
 #typed-text {
-    @apply text-theme;
+   @apply underline;
 }
 .typed-cursor {
     @apply ml-1;

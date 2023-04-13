@@ -19,8 +19,8 @@ module.exports = {
         },
         extend: {
             backgroundImage: {
-                "index-light": "linear-gradient(0deg, #ffffff, #ffffff40), url('/media/index.webp');",
-                "index-dark": "linear-gradient(0deg, #222222, #22222240), url('/media/index.webp');",
+                "index-light": "linear-gradient(0deg, #ffffff, #ffffff60), url('/media/index.webp');",
+                "index-dark": "linear-gradient(0deg, #222222, #22222260), url('/media/index.webp');",
             }
         }
     },
