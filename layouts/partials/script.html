@@ -29,16 +29,9 @@
     });
 </script>
 
-<!-- Accordion open/close toggle script -->
+<!-- Accordion menu open/close toggle script -->
 <script>
-    var i,
-        acc = document.getElementsByClassName("accordion");
-    for (i = 0; i < acc.length; i++)
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var e = this.nextElementSibling;
-            "block" === e.style.display ? (e.style.display = "none") : (e.style.display = "block");
-        });
+    var i,acc=document.getElementsByClassName("accordion");for(i=0;i<acc.length;i++){var e=acc[i].nextElementSibling;window.innerWidth<1024?(e.style.maxHeight=null,acc[i].classList.remove("expanded")):(e.style.maxHeight=e.scrollHeight+"px",acc[i].classList.add("expanded")),acc[i].addEventListener("click",function(){this.classList.toggle("expanded");var e=this.nextElementSibling;e.style.maxHeight?e.style.maxHeight=null:e.style.maxHeight=e.scrollHeight+"px"}),window.addEventListener("resize",function(){window.innerWidth<1024?(e.style.maxHeight=null,acc[i].classList.remove("expanded")):(e.style.maxHeight=e.scrollHeight+"px",acc[i].classList.add("expanded"))})}
 </script>
 
 <!-- Theme toggle script -->
@@ -126,7 +119,7 @@
                 (n += '<li><a href="' + r.url + '"><b class="underline">' + r.title + "</b>"), (n += '<p class="truncate ..."><i>' + r.content.substring(0, 160) + "</i></p></a></li>");
             }
             s.innerHTML = n;
-        } else s.innerHTML = n = '<span class="mb-4 text-theme"><b>⚠ Sorry, no matches were found for \'' + q + '\'.</b> Try searching for something else.</span>';
+        } else s.innerHTML = n = '<span class="mb-4 text-theme"><b>⚠ Sorry, no matches were found for \'' + q + "'.</b> Try searching for something else.</span>";
     }
     const params = new URLSearchParams(window.location.search),
         query = params.get("query");

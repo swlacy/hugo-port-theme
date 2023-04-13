@@ -20,7 +20,7 @@
                         <span class="text-light-text dark:text-dark-text">Sections</span>
                         <i icon-name="chevrons-down-up" height="20px" class="ml-auto"></i>
                     </button>
-                    <div class="panel hidden lg:block mb-8">
+                    <div class="panel mb-2">
                         <ul class="ml-4 border-l border-solid border-light-tertiary dark:border-dark-tertiary">
                             {{ range .Data.Pages.Reverse }} {{ if .IsSection }}
                             <li>
@@ -47,7 +47,7 @@
                         <span class="text-light-text dark:text-dark-text">Tags</span>
                         <i icon-name="chevrons-down-up" height="20px" class="ml-auto"></i>
                     </button>
-                    <div class="panel hidden lg:block">
+                    <div class="panel">
                         <ul class="ml-4 mt-4 border-l border-solid border-light-tertiary dark:border-dark-tertiary">
                             {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $count := .Count }} {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
                             <li>
