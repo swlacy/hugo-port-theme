@@ -56,10 +56,10 @@ p img {
 p a,
 article ul li a,
 article ol li a {
-    @apply text-theme;
-}
-p a:hover {
     @apply underline;
+}
+p a:hover, article ul li a:hover, article ol li a:hover {
+    @apply text-theme;
 }
 a:hover {
     @apply text-theme;
