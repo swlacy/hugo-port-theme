@@ -235,9 +235,9 @@ article h4:before {
     } */
 
     /* Animate opening accordion menus */
-    .panel {
+    /* .panel {
         transition: max-height 0.2s ease;
-    }
+    } */
 }
 
 /* Animate opening accordion menus */
