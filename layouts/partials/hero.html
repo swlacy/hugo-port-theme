@@ -1,14 +1,14 @@
-<div class="py-8 lg:py-12 bg-index-light dark:bg-index-dark">
+<div class="py-8 lg:py-12">
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap -mx-4">
-            <a href="{{ .Site.Params.authorPage }}" class="flex w-full lg:w-1/5 md:w-1/4 sm:w-1/3 px-4 justify-center mb-8 lg:mb-0 drop-shadow-xl" title="{{ .Site.Params.authorName }}">
-                <img class="w-full object-cover rounded-3xl" src="{{ .Site.Params.headshot }}" alt="" />
+            <a href="{{ .Site.Params.authorPage }}" class="flex w-full lg:w-1/4 md:w-1/3 sm:w-1/2 px-4 justify-center mb-8 lg:mb-0 drop-shadow-xl" title="About {{ .Site.Params.authorName }}">
+                <img class="w-full sm:max-w-none max-w-xs sm:rounded-full rounded-3xl" src="{{ .Site.Params.headshot }}" alt="" />
             </a>
-            <div class="w-full lg:w-4/5 md:w-3/4 sm:w-2/3 px-4 lg:mb-0 flex items-center">
+            <div class="w-full lg:w-3/4 md:w-2/3 sm:w-1/2 px-4 lg:mb-0 flex items-center">
                 <div class="w-full">
                     <div class="mb-4">
                         <h2 class="block mb-6 text-4xl lg:text-5xl text-white font-bold">{{ .Site.Params.indexTitle }}</h2>
-                        {{ partial "typed" . }}
+                        <!-- {{ partial "typed" . }} -->
                         <div class="text-gray-400 text-xl">{{ .Site.Params.indexSubTitle | markdownify }}</div>
                         <div class="flex gap-8 mt-6">
                             {{ range .Site.Menus.socials }}
