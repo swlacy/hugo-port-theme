@@ -58,7 +58,9 @@ article ul li a,
 article ol li a {
     @apply underline;
 }
-p a:hover, article ul li a:hover, article ol li a:hover {
+p a:hover,
+article ul li a:hover,
+article ol li a:hover {
     @apply text-theme;
 }
 a:hover {
@@ -98,12 +100,17 @@ a:hover {
 
 /* Typing animation styling */
 #typed-text {
-   @apply underline;
+    @apply underline;
 }
 .typed-cursor {
     @apply ml-1;
     @apply bg-theme;
     @apply text-transparent;
+}
+
+/* Dim background when sidebar is open */
+.sidebar-open {
+    @apply opacity-25; /* adjust opacity to desired level */
 }
 
 /* Position the copy button in the top-right corner of each code block */
