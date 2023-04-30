@@ -3,7 +3,7 @@
     <div class="max-w-5xl mx-auto">
         <h2 class="mb-4">{{ .Site.Params.authorName }} Resume</h2>
         {{ if and .Site.Params.resumeLink .Site.Params.resumeFile }}
-        <p>View my most recent resume below <span class="sm:hidden">(swipe to pan content on mobile)</span> or download it <a href="{{ .Site.Params.resumeFile }}">here</a>. Source is <a href="{{ .Site.Params.resumeSrc }}">here</a>.</p>
+        <p>View my most recent resume below <span class="sm:hidden">(swipe to pan content on mobile)</span> or <a href="{{ .Site.Params.resumeFile }}">download it</a>.{{ if .Site.Params.resumeSrc }} Source is <a href="{{ .Site.Params.resumeSrc }}">here</a>.{{ end }}</p>
         <div class="mt-4">
             <iframe id="pdf-iframe" src="{{ .Site.Params.resumeFile }}" width="100%"></iframe>
         </div>
