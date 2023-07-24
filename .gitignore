@@ -1,2 +1,6 @@
 # TailwindCSS binary
-tailwind/tailwind
+tailwind/tw_bin
+
+# 3P dependencies (fetch by running `dependencies.sh` in the root of the project)
+static/font/*
+static/js/*
