@@ -1,0 +1,23 @@
+{{ define "main" }} {{ $wordCount := 0 }} {{ range where .Pages "Section" .Section }} {{ $wordCount = add $wordCount (len (split .Plain " ")) }} {{ end }}
+<div class="mx-auto py-12 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+        <h1>{{ .Title }}</h1>
+        {{ if gt $wordCount 0 }}
+        <p class="italic">
+            There are about {{ $wordCount | lang.NumFmt 0 }} words (~{{ div $wordCount 12780.0 | lang.NumFmt 1 }} hours reading time<a class="nodec" href="https://scholarwithin.com/average-reading-speed#adult-average-reading-speed">*</a>)
+            across {{ len (where .Pages "Section" .Section) }} articles in this section.
+        </p>
+        {{ end }}
+        <hr class="pb-2" />
+        {{ range .Pages.ByPublishDate.Reverse }}
+        <p class="flex font-mono">
+            <span class="hidden lg:block">
+                -rw-r--r-- 1 {{ with .Site.Params.footerCopyrightName }} {{ index (split . " ") 0 }} {{ end }} {{ $dateFormat := .Site.Params.dateFormat | default "Jan 02 2006" }} {{ .PublishDate.Format $dateFormat }} {{ printf "%04d"
+                .WordCount }} &nbsp;&nbsp;&nbsp;
+            </span>
+            <a href="{{ .Permalink }}" class="underline">{{ .Section | title }}/{{ .Title }}</a>
+        </p>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
