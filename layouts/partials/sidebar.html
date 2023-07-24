@@ -71,8 +71,11 @@
                     </div>
                     <div class="flex">
                         <i icon-name="cog" height="14px" class="mt-px"></i>
-                        Last Built {{ now.Format "January 2, 2006" }} {{ .Site.Params.timezone}}
+                        Last Built&nbsp;<a href="{{ .Site.Params.repoLink }}" class="underline hover:text-theme">{{ now.Format "January 2, 2006" }} {{ .Site.Params.timezone}}</a>
                     </div>
+                </div>
+                <div class="mt-4 pl-1 text-xs">
+                    {{ .Site.Params.footerTagLine }}
                 </div>
             </div>
         </div>
