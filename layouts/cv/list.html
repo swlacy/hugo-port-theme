@@ -1,23 +1,28 @@
-{{ define "main" }} {{ $wordCount := 0 }} {{ range where .Pages "Section" .Section }} {{ $wordCount = add $wordCount (len (split .Plain " ")) }} {{ end }}
-<div class="mx-auto py-12 px-4 bg-gray-50">
+{{ define "main" }}
+<div class="mx-auto py-6 px-4 bg-gray-50">
     <div class="max-w-5xl mx-auto">
-        <h1>{{ .Title }}</h1>
-        {{ if gt $wordCount 0 }}
-        <p class="italic">
-            There are about {{ $wordCount | lang.NumFmt 0 }} words (~{{ div $wordCount 12780.0 | lang.NumFmt 1 }} hours reading time<a class="nodec" href="https://scholarwithin.com/average-reading-speed#adult-average-reading-speed">*</a>)
-            across {{ len (where .Pages "Section" .Section) }} articles in this section.
-        </p>
-        {{ end }}
-        <hr class="pb-2" />
-        {{ range .Site.RegularPages.ByPublishDate.Reverse }}
-        <p class="flex font-mono">
-            <span class="hidden lg:block">
-                -rw-r--r-- 1 {{ with .Site.Params.footerCopyrightName }} {{ index (split . " ") 0 }} {{ end }} {{ $dateFormat := .Site.Params.dateFormat | default "Jan 02 2006" }} {{ .PublishDate.Format $dateFormat }} {{ printf "%04d"
-                .WordCount }} &nbsp;&nbsp;&nbsp;
-            </span>
-            <a href="{{ .Permalink }}" class="underline">{{ if .Section }}/{{ .Section | title }}{{ end }}/{{ .Title }}</a>
-        </p>
-        {{ end }}
+        <h2 class="mb-4">{{ .Site.Params.authorName }} CV</h2>
+        Pending
+        <!-- <div class="flex flex-wrap -mx-4">
+            <a href="{{ .Site.Params.authorPage }}" class="flex w-full lg:w-1/12 md:w-1/3 sm:w-1/2 drop-shadow-xl" title="About {{ .Site.Params.authorName }}">
+                <img class="w-full sm:max-w-none rounded-3xl" src="{{ .Site.Params.headshot }}" alt="" />
+            </a>
+            <div class="w-full lg:w-11/12 md:w-2/3 sm:w-1/2 px-4 lg:mb-0 flex items-center">
+                <div class="w-full">
+                    <div class="mb-4">
+                        <h2 class="block mb-6 text-4xl lg:text-5xl text-white font-bold">{{ .Site.Params.indexTitle }}</h2>
+                        <div class="text-gray-400 text-xl">{{ .Site.Params.indexSubTitle | markdownify }}</div>
+                        <div class="flex gap-8 mt-6">
+                            {{ range .Site.Menus.socials }}
+                            <a class="text-gray-400 hover:text-gray-50" href="{{ .URL }}" title="{{ .Name }}">
+                                <i icon-name="{{ .Pre | safeHTML }}" height="18pt"></i>
+                            </a>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
 </div>
 {{ end }}
