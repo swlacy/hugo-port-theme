@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Normal font */
+@font-face {
+    font-family: "Ubuntu";
+    font-weight: normal;
+    src: url("../font/Ubuntu-R.ttf") format("truetype");
+}
+
+/* Bold font */
+@font-face {
+    font-family: "Ubuntu";
+    font-weight: bold;
+    src: url("../font/Ubuntu-B.ttf") format("truetype");
+}
+
+/* Apply global font */
+body {
+    font-family: "Ubuntu", sans;
+}
+
 /* Code styling */
 code {
     @apply text-sm;
