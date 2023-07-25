@@ -5,7 +5,7 @@
         {{ if gt $wordCount 0 }}
         <p class="mt-2">
             There are about {{ $wordCount | lang.NumFmt 0 }} words (~{{ div $wordCount 12780.0 | lang.NumFmt 1 }} hours <a class="nodec" href="https://scholarwithin.com/average-reading-speed#adult-average-reading-speed">reading time*</a>)
-            across {{ len .Site.RegularPages }} regular page on this site.
+            across {{ len .Site.RegularPages }} regular pages on this site.
         </p>
         {{ end }}
         <hr class="pb-2" />
