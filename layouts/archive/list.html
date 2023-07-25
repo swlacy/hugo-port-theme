@@ -1,5 +1,5 @@
 {{ define "main" }} {{ $wordCount := 0 }} {{ range .Site.RegularPages }} {{ $wordCount = add $wordCount (len (split .Plain " ")) }} {{ end }}
-<div class="mx-auto py-12 px-4 bg-gray-50">
+<div class="mx-auto py-12 px-4">
     <div class="max-w-5xl mx-auto">
         <h1>{{ .Title }}</h1>
         {{ if gt $wordCount 0 }}
